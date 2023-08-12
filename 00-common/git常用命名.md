@@ -6,16 +6,9 @@ rating: 5
 time: 2023-08-08 周二
 tags:
  - git
- - 数据仓库
+ - 本地仓库
+ - 远程仓库
 ---
-
-
-
-```dataview
-list
-from #git
-```
-
 ## 一、克隆远程仓库
 
 ```shell
