@@ -1,3 +1,5 @@
-themes
 .trash
-.obsidian
+.obsidian/*.json
+.obsidian/plugins/*
+!.obsidian/plugins/obsidian-proxy-github
+!.obsidian/plugins/obsidian-excalidraw-plugin
