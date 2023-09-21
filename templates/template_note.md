@@ -1,10 +1,12 @@
 ---
 author: wufm
-title: {{title}}
+title: "{{title}}"
 rating: 0
-time: {{date:YYYY-MM-DD ddd}}
+time: "{{date:YYYY-MM-DD ddd}}"
 tags:
- - xx
- - xx
+  - xx
+  - xx
+代码: 
+mindmap-plugin: basic
+read: "true"
 ---
-

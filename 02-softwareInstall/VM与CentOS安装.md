@@ -32,7 +32,7 @@ SecureCRT官网下载路径：[VanDyke Software: Secure Shell Solutions - Secure
 ![[Pasted image 20230818172245.png]]
 
 ### 1.4 Xshell和Xftp下载
-Xshell和Xftp官网下载路径：[ERROR: The request could not be satisfied (xshell.com)](https://www.xshell.com/zh/xshell/)
+Xshell和Xftp官网下载路径：[家庭/学校免费 - NetSarang Website (xshell.com)](https://www.xshell.com/zh/free-for-home-school/)
 
 ## 二、VM的安装
 
@@ -66,7 +66,8 @@ Xshell和Xftp官网下载路径：[ERROR: The request could not be satisfied (xs
 
 ![[Pasted image 20230818144307.png]]
 
-建议给4g，不能给太多，后期多个虚拟机一起启动。
+**建议给4g，不能给太多，后期多个虚拟机一起启动。**
+
 ![[Pasted image 20230818144805.png]]
 
 ![[Pasted image 20230818144909.png]]
@@ -111,7 +112,7 @@ Xshell和Xftp官网下载路径：[ERROR: The request could not be satisfied (xs
 
 ![[Pasted image 20230818152614.png]]
 
-把ip地址修改为静态ip。
+把ip地址修改为静态ip。ip和网关参考[[VM与CentOS安装#3.2.1 可用ip范围]]
  ```shell
 # 1.修改网卡配置：
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
@@ -120,12 +121,16 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 BOOTPROTO=static # dhcp动态ip地址，static静态ip地址
 ONBOOT=yes # yes开启网卡自动连接
 IPADDR=修改没有冲突的ip
+# 子网掩码
+NETMASK=255.255.255.0
+# 网关
+GATEWAY=192.168.204.2
+# DNS是用来做域名解析的
+DNS1=192.168.204.2
 
 # 2.修改完成后，重启网络服务
 systemctl restart network
 ```
-
-![[Pasted image 20230818162433.png]]
 
 #### 3.2.1 可用ip范围
 
@@ -138,7 +143,9 @@ systemctl restart network
 
 ![[Pasted image 20230818164646.png]]
 
+![[Pasted image 20230830093458.png]]
 
+ip:192.168.204.1也不可用，综合上一张图片。**可用ip范围是192.168.203.3~254**
 ## 四、克隆机器
 
 机器在关机的状态下进行克隆。
@@ -163,7 +170,12 @@ BOOTPROTO=static # dhcp动态ip地址，static静态ip地址
 # UUID那行删除，开机会自动分配，避免与克隆那台机器一样
 ONBOOT=yes # yes开启网卡自动连接
 IPADDR=修改没有冲突的ip
-GATEWAY=网关
+# 子网掩码
+NETMASK=255.255.255.0
+# 网关
+GATEWAY=192.168.204.2
+# DNS是用来做域名解析的
+DNS1=192.168.204.2
 
 # 2.修改主机名
 vi /etc/hostname

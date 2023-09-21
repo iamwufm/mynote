@@ -8,10 +8,6 @@ tags:
  - markdown
 ---
 
-
-
-
-
 ## 1. markdown基础
 
 ### 1.1 标题
@@ -24,8 +20,6 @@ tags:
 
 ...
 
-
-
 ### 1.2 文字
 
 #### 1.2.1 加粗、高亮
@@ -37,9 +31,6 @@ tags:
 - 高亮：需要加亮字体的前后加上两个等于号=
 
 ==需要高亮的字体==
-
-
-
 #### 1.2.2 更换颜色
 
 ```html
@@ -66,8 +57,6 @@ tags:
 
 <u>我是下划线</u>
 
-
-
 #### 1.2.4 上下标
 
 - 上标：需要上标文字前后加^
@@ -77,11 +66,6 @@ m^2^
 - 下标：需要下标文字前后加~
 
 H~2~O
-
-
-
-
-
 ### 1.3 超链接与图片
 
 - 链接的快捷键：ctrl+k
@@ -94,7 +78,6 @@ H~2~O
 
     [回到三级标题-文字](#1.2 文字)
 
-    
 
 - 图片的快捷键：Ctrl+Shift+i
 
@@ -120,7 +103,6 @@ public class MyConstant {
     }
 }
 ```
-
 ### 1.6 表格
 
 表格的快捷键：ctrl+t
@@ -128,8 +110,6 @@ public class MyConstant {
 | name | age  |
 | :--: | :--: |
 | wfm  |  18  |
-
-
 
 ### 1.7 目录
 
@@ -188,7 +168,6 @@ flowchart LR
 ```
 
 #### 2.1.1 节点形状
-
 
 
 | 表述       | 说明           | 含义                                           |
@@ -254,11 +233,6 @@ flowchart TB
 	isRemaining-->|有|happy[开心]-->goBack(回家)
 	isRemaining--没有-->sad[伤心]-->goBack(回家)
 ```
-
-
-
-
-
 ### 2.2 时序图
 
 ```markdown
@@ -315,9 +289,6 @@ sequenceDiagram
 	22 -->>-11:你的炸鸡好了！
 	
 ```
-
-
-
 #### 2.2.4 注解（note）
 
 ```markdown
@@ -341,8 +312,6 @@ sequenceDiagram
 	22 -->>-11:你的炸鸡好了！
 ```
 
-
-
 #### 2.2.5 循环（loop）
 
 ```mermaid
@@ -358,8 +327,6 @@ sequenceDiagram
 	end
 	22 -->>-11:你的炸鸡好了！
 ```
-
-
 
 #### 2.2.6 选择（alt）
 
@@ -377,8 +344,6 @@ sequenceDiagram
 	炸鸡店小哥-->小明:欢迎下次光临
 ```
 
-
-
 #### 2.2.7 可选（opt）
 
 ```mermaid
@@ -388,8 +353,6 @@ sequenceDiagram
 		炸鸡店小哥-->>小明:下次再来
 	end
 ```
-
-
 
 #### 2.2.8 并行（par）
 
@@ -403,8 +366,6 @@ sequenceDiagram
 	end
 	炸鸡店小哥-->>小明:您的单好了
 ```
-
-
 
 ### 2.3 饼图
 
@@ -424,6 +385,4 @@ pie
 ### 2.4 其他
 
 [mermaid官网](https://mermaid.js.org/syntax/sequenceDiagram.html)
-
-
 

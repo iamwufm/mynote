@@ -1,14 +1,13 @@
 ---
 author: wufm
-title: obsidian使用笔记
-rating: 6
-time: 2023-08-08 周二
+title: obsidian笔记
+rating: 0
+time: 2023-09-21 周四
 tags:
- - obsidian
- - markdown
+  - obsidian
+  - markdown
+代码:
 ---
-
-
 
 **obsidian**:基于==**markdown**==语法和==**双链功能**==的深度知识管理工具
 ## 一、常用markdown语法
@@ -231,9 +230,10 @@ from "00-common"
 
 ### 3.4脑图插件
 
+Obsidian markmind插件：使用见[[markmind]]
+
 Mind Map插件：可以把标题或列表转为思维导图
 ![[Pasted image 20230807180137.png]]
-
 ### 3.5流程图插件
 Excalidraw插件
 

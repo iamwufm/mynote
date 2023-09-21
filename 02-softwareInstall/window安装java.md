@@ -18,7 +18,10 @@
 ### 2.1下载maven压缩包
 官网下载zip包：[https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi) ^07b760
 
+jdk1.8建议使用maven的版本是3.3.9
 解压即安装。
+
+从官方获取jar包：[中央仓库](https://mvnrepository.com/)
 
 ### 2.2配置环境变量
 
@@ -42,22 +45,40 @@
 
 ```xml
 <!-- 找到<mirrors></mirrors>标签，复制如下内容到标签里面-->
-<mirror>  
-     <id>alimaven</id>  
-     <name>aliyun maven</name>  
-     <url>http://maven.aliyun.com/nexus/content/groups/public/</url>  
-     <mirrorOf>central</mirrorOf>        
-</mirror>
+	 <!--此处配置所有的构建均从私有仓库中下载 *代表所有，
+		也可以写central等和仓库配置 id 一致的内容-->
+		<!--外网-->
+	<mirror>
+      <id>nexus</id>
+      <mirrorOf>central</mirrorOf>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+	</mirror>
 ```
 
-## 三、安装idea
+国内镜像仓库
 
-### 3.1下载idea应用程序
+```txt
+阿里云：https://maven.aliyun.com/repository/public
+华为云：https://repo.huaweicloud.com/repository/maven/
+网易：http://maven.netease.com/repository/public/
+tencent：https://mirrors.cloud.tencent.com/repository/maven/
+中国科学院开源协会：http://maven.opencas.cn/maven/
+清华大学：https://repo.maven.apache.org/maven2/
+中国科技大学：http://mirrors.ustc.edu.cn/maven/maven2/
+东软信息学院：https://mirrors.neusoft.edu.cn/maven2/
+中央仓库：https://repo1.maven.org/maven2/
+```
+## 三、安装编译器
+
+Eclipse和IDEA是目前比较流行的编辑器。Eclipse是免费的，idea是收费的。
+
+### 3.1 安装idea
+#### 3.1.1 下载idea应用程序
 idea下载官网：[IntelliJ IDEA – 领先的 Java 和 Kotlin IDE (jetbrains.com.cn)](https://www.jetbrains.com.cn/idea/promo/?bd_vid=8517581315287908800)
 专业版是不免费的，建议网上查找破解的专业版。
 双击安装。
 
-### 3.2idea破解
+#### 3.1.2 idea破解
 把JetbrainsCrack-release-enc.jar放在idea的bin目录下，然后在bin目录下两个文件（idea.exe.vmoptions、idea64.exe.vmoptions）追加以下一句
 
 ```txt
@@ -93,7 +114,7 @@ ThisCrackLicenseId-{
 “autoProlongated”:false}
 ```
 
-### 3.3配置jdk
+#### 3.1.3配置jdk
 
 ![[图片14.png]]
 
@@ -101,10 +122,48 @@ ThisCrackLicenseId-{
 ![[图片15.png]]
 
 
-![[图片16.png]]
+![[Pasted image 20230907092416.png]]
 
-### 3.4配置maven
+![[Pasted image 20230907092518.png]]
+
+![[Pasted image 20230907092255.png]]
+#### 3.1.4配置maven
 
 ![[图片17.png]]
 
 ![[图片18.png]]
+
+### 3.2 安装Eclipse
+
+#### 3.2.1 下载Eclipse包
+
+官网地址：[Eclipse Downloads | The Eclipse Foundation](https://www.eclipse.org/downloads/)
+
+#### 3.2.2 安装Eclipse
+
+解压后，将eclipse中的执行程序 点右键  发送到桌面快捷方式
+然后双击快捷方式启动即可
+
+#### 3.2.3 配置jdk
+
+![[Pasted image 20230907091255.png]]
+
+
+![[Pasted image 20230907090930.png]]
+
+![[Pasted image 20230907090950.png]]
+
+![[Pasted image 20230907091035.png]]
+
+![[Pasted image 20230907091110.png]]
+
+![[Pasted image 20230907091141.png]]
+#### 3.2.4 安装maven
+
+![[Pasted image 20230907091328.png]]
+
+![[Pasted image 20230907091353.png]]
+
+![[Pasted image 20230907091452.png]]
+
+![[Pasted image 20230907091407.png]]
