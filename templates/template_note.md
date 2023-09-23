@@ -6,7 +6,5 @@ time: "{{date:YYYY-MM-DD ddd}}"
 tags:
   - xx
   - xx
-代码: 
-mindmap-plugin: basic
-read: "true"
+代码:
 ---

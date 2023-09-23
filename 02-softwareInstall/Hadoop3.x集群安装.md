@@ -4,7 +4,8 @@ title: Hadoop3.x安装
 rating: 3
 time: 2023-08-24 周四
 tags:
- - hadoop安装
+  - hadoop安装
+  - 完全分布模式
 ---
 
 ## 一、集群的组成
@@ -14,20 +15,19 @@ ip地址前九位数字必须跟网关保持一致，因为网关是大佬，对
 本VMnet8的网关是192.168.204.2。
 
 NameNode、SecondaryNameNode和ResourceManager不要安装在同一台机器上，都是容易消耗内存的。
-DataNode和NodeManager应该部署在一起。
+==DataNode和NodeManager应该部署在一起。==
 
-| 主机名 | hadoop101         | hadoop102                    | hadoop103                 |
-| ------ | ------------------ | ---------------------------- | -------------------------- |
-| ip地址 | 192.168.204.101   | 192.168.204.102             | 192.168.204.103           |
-| HDFS   | NameNode、DataNode | DataNode                     | DataNode、SecodaryNameNode |
-| YARN   | NodeManager        | ResourceManager、NodeManager | NodeManager                |
+![[Drawing 2023-09-21 16.27.20.excalidraw|450]]
 ## 二、环境准备
 
 ### 2.1 安装虚拟机
 
 硬件要求：内存4G、硬盘50G
+
 主机名：hadoop101
+
 ip地址：192.168.204.101
+
 root密码：abcd1234..
 
 详细安装参考见 [[VM与CentOS安装]]，暂时不看[[VM与CentOS安装#四、克隆机器]]
@@ -41,7 +41,6 @@ root密码：abcd1234..
 ```shell
 ping baidu.com
 ```
-
 #### 2.2.2 安装工具包
 
 ```shell
@@ -64,7 +63,6 @@ yum install -y rsync
 # 主要用于同步服务器时间
 yum install  -y ntp
 ```
-
 #### 2.2.3 关闭防火墙
 
 在企业开发时，通常单个服务器的防火墙是关闭的。公司整体对外会设置非常安全的防火墙。
@@ -76,7 +74,6 @@ systemctl stop firewalld
 # 关闭防火墙自启
 systemctl disable firewalld.service
 ```
-
 #### 2.2.4 创建hadoop用户和配置权限
 
 ```shell
@@ -91,7 +88,6 @@ vim /etc/sudoers
 # hadoop这一行不要直接放到root行下面，因为所有用户都属于 wheel 组，你先配置了hadoop具有免密功能，但是程序执行到%wheel行时，该功能又被覆盖回需要密码。所以hadoop要放到%wheel 这行下面。
 hadoop ALL=(ALL) NOPASSWD:ALL
 ```
-
 #### 2.2.5 创建文件夹
 
  在/opt目录下创建文件夹，并修改所属主和所属组
@@ -123,7 +119,6 @@ linux路径：vim /etc/hosts
 192.168.204.102	hadoop102
 192.168.204.103	hadoop103
 ```
-
 #### 2.2.7 安装JDK
 
 ```shell
@@ -159,21 +154,19 @@ source /etc/profile
 # 7.验证java是否安装成功
 java -version
 ```
-
 ## 三、安装hadoop集群
 
-没特殊说明，以下操作均在hadoop101机器上的hadoop用户下执行。
+==没特殊说明，以下操作均在hadoop101机器上的hadoop用户下执行。==
 ### 3.1 安装其他两台虚拟机
 
 采用完整克隆方法安装，具体操作参考：[[VM与CentOS安装#四、克隆机器]]
 
 主机名和ip地址参考[[Hadoop3.x集群安装#一、集群的组成]]
-
 ### 3.2 安装Hadoop和修改配置文件
 
 Hadoop包下载地址：[Apache Hadoop官网](https://hadoop.apache.org/releases.html)
-阿里云镜像下载：[阿里云镜像](https://mirrors.aliyun.com/apache/hadoop/core/)
 
+阿里云镜像下载：[阿里云镜像](https://mirrors.aliyun.com/apache/hadoop/core/)
 #### 3.2.1 安装Hadoop
 
 ```shell
@@ -208,7 +201,6 @@ etc：Hadoop的配置文件目录，存放Hadoop的配置文件
 lib：存放Hadoop的本地库（对数据进行压缩解压功能）
 share：存放Hadoop的依赖jar包、文档和官方案例
 ```
-
 #### 3.2.2 修改配置文件
 
 Hadoop配置文件分两类：默认配置文件和自定义配置文件，**只有用户想修改某一默认配置值时，才需要修改自定义配置文件，更改相应属性值**。
@@ -320,7 +312,6 @@ vim yarn-site.xml
 </property>
 ```
 
-
 4. 修改mapred-site.xml
 
 ```shell
@@ -336,7 +327,7 @@ vim mapred-site.xml
 <value>yarn</value>
 </property>
 
-<!--为了查看程序的历史运行情况，需要配置一下历史服务器-->
+<!--为了查看程序job的历史运行情况，需要配置一下历史服务器-->
 <!-- 历史服务器端地址 -->
 <property>
 <name>mapreduce.jobhistory.address</name>
@@ -388,17 +379,15 @@ ll
 | id_rsa          | 生成的私钥                              |
 | id_rsa.pub      | 生成的公钥                              |
 | authorized_keys | 存放授权过的无密登陆服务器公钥                                        |
-
-
 ### 3.4 集群时间同步
 
 如果服务器在公网环境（能连接外网），可以不采用集群时间同步，因为服务器会定期和公网时间及逆行校准；**如果服务器在内网环境，必须要配置集群时间同步**，否则时间久了，会产生时间偏差，导致集群执行任务不同步。
 
-解决方法之一：找一台机器，作为时间服务器，所有的机器与这台机器的时间进行定时的同步。
+解决方法之一：==找一台机器，作为时间服务器，所有的机器与这台机器的时间进行定时的同步。==
 
 ![[Drawing 2023-08-29 16.48.14.excalidraw]]
 
-1. 在hadoop101上的操作
+（1）在hadoop101上的操作
 
 ```shell
 # 在hadoop101上修改ntp.conf 配置文件
@@ -436,7 +425,7 @@ sudo systemctl start ntpd
 sudo systemctl enable ntpd
 ```
 
-2. 在其他机器上的操作（hadoop102和hadoop103）
+（2）在其他机器上的操作（hadoop102和hadoop103）
 
 ```shell
 # 1.关闭其他机器上 ntp 服务和自启动
@@ -459,8 +448,7 @@ sudo date
 
 可以实现服务器与服务器之间的数据拷贝命令：
 
-**rsync 和 scp 区别：用 rsync 做文件的复制要比 scp 的速度快，rsync 只对差异文件做更
-新。scp 是把所有文件都复制过去。**
+**rsync 和 scp 区别：用 rsync 做文件的复制要比 scp 的速度快，rsync 只对差异文件做更新。scp 是把所有文件都复制过去。**
 
 完全拷贝：
 
@@ -566,7 +554,6 @@ xsync /opt/module/
 # 在hadoop102和hadoop103执行以下语句， 环境变量生效
 source /etc/profile
 ```
-
 ### 3.6 初始化namenode的元数据目录
 
 只需要执行一次，生成一个全新的元数据存储目录（具体路径：/opt/data/hadoop-3.3.6/dfs/name/current）
@@ -586,6 +573,7 @@ hadoop namenode -format
 ### 4.1 逐个启动
 
 要先启动namenode，再启动datanode。
+
 首次启动datanode会生成==**clusterID**==（/opt/data/hadoop-3.3.6/dfs/data），后面会根据这个id跟namenode通讯。
 
 ```shell
@@ -633,7 +621,6 @@ mapred --daemon start historyserver
 
 # 关闭，把启动命令的start改为stop
 ```
-
 ### 4.3 网页访问
 
 ```shell
@@ -643,7 +630,7 @@ http://hadoop101:9870
 # web端查看YARN的resourceManager（查看Yarn上运行的Job信息）
 http://hadoop102:8088
 
-# web端查看历史任务JobHistory
+# web端查看历史任务JobHistory 
 http://hadoop101:19888
 ```
 
@@ -656,9 +643,29 @@ netstat -ntlp|grep 进程id
 hadoop02:端口号（http://hadoop02:9870，旧版本是http://hadoop02:50070）
 # 4.同理，也可以通过相同的方法访问datanode提供的web
 ```
+
+==查看HDFS上存储的数据信息：== ^41540d
+
+![[Pasted image 20230921173827.png|400]]
+
+![[Pasted image 20230921173853.png|400]]
+
+==查看Yarn上运行的Job信息：== ^6b710f
+
+![[Pasted image 20230921174035.png|425]]
+
+![[Pasted image 20230921174225.png|425]]
+
+![[Pasted image 20230921174323.png|425]]
+
+![[Pasted image 20230921174406.png|425]]
+
+==查看历史任务：==
+
+![[Pasted image 20230921174809.png|450]]
 ### 4.4 测试集群
 
-1. 上传文件
+（1）上传文件。可通过页面查看[[#^41540d]]
 
 ```shell
 # 测试上传文件
@@ -689,26 +696,24 @@ rm -rf tmp.tar.gz
 rm -rf jdk1.8.0_144/
 ```
 
-2. 下载文件
+（2）下载文件
 
 ```shell
 hadoop fs -get /jdk-8u144-linux-x64.tar.gz /home/hadoop
 ```
 
-3. 执行wordcount 程序
+（3）执行wordcount 程序。可通过页面查看[[#^6b710f]]
 
 ```shell
 hadoop jar /opt/module/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /input /output
 ```
-
-
 ### 4.5 编写集群常用脚本
 
 ```shell
 cd /home/hadoop/bin
 ```
 
-1. 集群启动、关闭脚本
+（1）集群启动、关闭脚本
 
 ```shell
 # 使用方式：myhadoop.sh start 或 myhadoop.sh start
@@ -759,7 +764,7 @@ chmod +x myhadoop.sh
 sudo cp myhadoop.sh /bin/
 ```
 
-2. 查看三台服务器 Java 进程脚本
+（2）查看三台服务器 Java 进程脚本
 
 ```shell
 # 使用方式：jpsall

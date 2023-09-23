@@ -1,7 +1,7 @@
 ---
 author: wufm
 title: Hadoop生产调优手册
-rating: 6
+rating: 7
 time: 2023-09-16 周六
 tags:
   - Hadoop
@@ -26,7 +26,7 @@ G      MB         KB     Byte
 
 [硬件要求 |6.x |Cloudera 文档](https://docs.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_hardware_requirements.html#concept_fzz_dq4_gbb)
 
-![[NameNode和DataNode的内存要求.excalidraw|600]]
+![[NameNode和DataNode的内存要求.excalidraw|500]]
 #### 1.1.2 查看NameNode和DataNode占用内存
 
 Hadoop2.x 系列，NameNode 内存默认 2000m；Hadoop3.x 系列，Hadoop 的内存是动态分配的。
@@ -93,7 +93,7 @@ vim hdfs-site.xml
 ```
 
 ```xml
-<!--NameNode 有一个工作线程池，用来处理不同 DataNode 的并发心跳以及客户端并发的元数据操作。-->
+<!--NameNode有一个工作线程池，用来处理不同 DataNode 的并发心跳以及客户端并发的元数据操作。-->
 <!--对于大集群或者有大量客户端的集群来说，通常需要增大该参数。默认值是 10。-->
 <property>
 <name>dfs.namenode.handler.count</name>
@@ -165,9 +165,9 @@ hadoop fs -mv /user/hadoop/.Trash/Current/output /ouput
 python -m SimpleHTTPServer
 ```
 
-![[Drawing 2023-09-18 11.03.34.excalidraw|350]]
+![[Drawing 2023-09-18 11.03.34.excalidraw|250]]
 
-![[Pasted image 20230918111610.png|600]]
+![[Pasted image 20230918111610.png|425]]
 ### 2.1 测试HDFS写性能
 
 ![[写测试底层原理.excalidraw]]
@@ -291,7 +291,7 @@ ll
 
 DataNode 可以配置成多个目录，==每个目录存储的数据不一样==（数据不是副本）
 
-![[datanode多目录配置.excalidraw|450]]
+![[datanode多目录配置.excalidraw|350]]
 **具体配置如下**：
 
 把hadoop101的datanode目录配置两个，配置只需要修改hadoop101即可
@@ -331,6 +331,7 @@ ll
 生产环境，由于硬盘空间不足，往往需要增加一块硬盘。刚加载的硬盘没有数据时，可以执行磁盘数据均衡命令。（Hadoop3.x 新特性）
 
 ![[集群数据均衡之磁盘间数据均衡.excalidraw|400]]
+hadoop101有两块磁盘，一块没有数据，我们把这两块磁盘的数据均衡下。
 
 ```shell
 # 生成均衡计划（我们只有一块磁盘，不会生成计划）
@@ -350,9 +351,9 @@ hdfs diskbalancer -cancel hadoop101.plan.json
 
 ### 4.1 添加白名单
 
-白名单：==表示在白名单的主机 IP 地址可以，用来存储数据。==
+白名单：==表示在白名单的主机 IP 地址可以用来存储数据==
 
-企业中：**配置白名单，可以尽量防止黑客恶意访问攻击。**
+企业中：**配置白名单，可以尽量防止黑客恶意访问攻击**
 
 3. 在 web 浏览器上查看 datanodes
 
@@ -427,14 +428,14 @@ hdfs dfsadmin -refreshNodes
 7.  在 web 浏览器上查看 datanodes
 
 ![[Pasted image 20230918220025.png|500]]
-
-
 ### 4.2 服役新服务器
 
 随着公司业务的增长，数据量越来越大，原有的数据节点的容量已经不能满足存储数据的需求，需要在原有集群基础上动态添加新的数据节点。
 
+新服务器配置可以参考[[Hadoop3.x集群安装]]，也可以从集群中某机器中完整克隆一台机器。
+
 1. 环境准备
-- 在 hadoop102 主机上再克隆一台 hadoop104主机
+- 在 hadoop101 主机上再克隆一台 hadoop104主机
 - 修改 IP 地址和主机名称
 
 ```shell
@@ -470,6 +471,7 @@ sudo vim /etc/hosts
 - 配置免密登陆
 
 ```shell
+# 在hadoop104
 cd /home/hadoop
 ls -al
 rm -rf .ssh/
@@ -518,9 +520,7 @@ hdfs --daemon start datanode
 yarn --daemon start nodemanager
 ```
 
-![[Pasted image 20230919100101.png|600*500]]
-
-
+![[Pasted image 20230919100101.png|650]]
 
 - 在 hadoop104上上传文件
 
@@ -533,7 +533,7 @@ hadoop fs -put wc.jar /
 ==思考：如果数据不均衡（hadoop104 数据少，其他节点数据多），怎么处理？==
 ### 4.3 服务器间数据均衡
 
-在企业开发中，如果经常在 hadoop102 和 hadoop104 上提交任务，且副本数为 2，由于数据本地性原则，就会导致 hadoop102 和 hadoop104 数据过多，hadoop103 存储的数据量小。
+在企业开发中，如果经常在 hadoop102 和 hadoop104 上提交任务，且副本数为 2，由于数据本地性原则，就会导致 hadoop102 和 hadoop104 数据过多，其他服务器存储的数据量小。
 
 另一种情况，就是新服役的服务器数据量比较少，需要执行集群均衡命令。
 
@@ -550,7 +550,7 @@ stop-balancer.sh
 
 ### 4.4 黑名单退役服务器
 
-黑名单：==表示在黑名单的主机 IP 地址不可以，用来存储数据==。
+黑名单：==表示在黑名单的主机 IP 地址不可以用来存储数据==。
 
 企业中：**配置黑名单，用来退役服务器**
 
@@ -600,8 +600,6 @@ yarn --daemon stop nodemanager
 ```
 
 如果数据不均衡，可以用命令实现集群的再平衡。[[#4.3 服务器间数据均衡]]
-
-
 ## 五、HDFS—存储优化
 
 ==注：演示纠删码和异构存储需要一共 5 台虚拟机。尽量拿另外一套集群。提前准备 5 台服务器的集群。==
@@ -613,7 +611,7 @@ yarn --daemon stop nodemanager
 
 HDFS默认情况，一个文件有3个副本，这样提高了数据的可靠性，但也带来了2倍的冗余开销。Hadoop3.x引入了纠删码，采用计算的方式，可以节省约50%左右的存储空间。
 
-![[纠删码原理.excalidraw]]
+![[纠删码原理.excalidraw|500]]
 ```shell
 # 纠删码操作相关的命令
 hdfs ec
@@ -653,7 +651,7 @@ XOR-2-1-1024k：使用XOR编码（速度比 RS 编码快），每2个数据单�
 hadoop fs -rm -r /
 ```
 
-datanode目录只有一个，方便测试。参见[[datanode多目录配置.excalidraw]]
+建议datanode目录只有一个，方便测试。参见[[#3.2 DataNode多目录配置]]
 
 3. 具体步骤：
 
@@ -683,7 +681,7 @@ hdfs dfs -get /input/jdk-8u144-linux-x64.tar.gz /home/hadoop
 
 ### 5.2 异构存储（冷热数据分离）
 
-==异构存储主要解决，不同的数据，存储在不同类型的硬盘中，达到最佳性能的问题。==
+==异构存储主要解决，不同的数据，存储在不同类型的硬盘中，达到最佳性能的问题==
 
 ![[异构存储（冷热数据分离）.excalidraw]]
 #### 5.2.1 存储类型和存储策略
@@ -706,7 +704,7 @@ ARCHIVE：归档存储。没有特指哪种存储介质，主要指的是计算�
 | 15     | Lazy_Persist | RAM_DISK:1,DISK:n-1 | 一个副本保存在内存RAM_DISK中，其余副本保存在磁盘中 |
 | 12     | All_SDD      | SSD:n               | 所有副本都保存在SSD中                              |
 | 10     | One_SSD      | SSD:1,DISK:n-1      | 一个副本保存在SSD，其余副本保存在磁盘中            |
-| 7      | Hot(default) | DISK:n              | 所有副本保存在磁盘中，这也是默认的存储策略         |
+| 7      | Hot | DISK:n              | 所有副本保存在磁盘中，这也是默认的存储策略         |
 | 5      | Warm         | DSIK:1,ARCHIVE:n-1  | 一个副本保存在磁盘上，其余副本保存在归档存储上     |
 | 2      | Cold         | ARCHIVE:n           | 所有副本都保存在归档存储上                         |
 
@@ -753,7 +751,7 @@ hadoop dfsadmin -report
 
 **2. 配置文件信息**
 
-1）为 hadoop101 节点的 hdfs-site.xml 添加如下信息
+（1）为 hadoop101 节点的 hdfs-site.xml 添加如下信息
 
 ```shell
 cd /opt/module/hadoop-3.3.6/etc/hadoop/
@@ -780,11 +778,11 @@ vim hdfs-site.xml
 </property>
 ```
 
-2）为 hadoop102-105跟1）一样。只需要修改最后一个参数的value值（根据集群规范）。
+（2）为 hadoop102-105跟（1）一样。只需要修改最后一个参数的value值（根据集群规范）。
 
 **3. 数据准备**
 
-1）启动集群
+（1）启动集群
 
 ```shell
 # 删除原来的数据和logs
@@ -802,13 +800,12 @@ hdfs --daemon start datanode
 yarn --daemon start nodemanager
 ```
 
-2）并在 HDFS 上创建文件目录，并将文件资料上传
+（2）并在 HDFS 上创建文件目录，并将文件资料上传
 
 ```shell
 hadoop fs -mkdir /hdfsdata
 hdfs dfs -put weiguo.txt /hdfsdata
 ```
-
 ##### 5.2.3.2 存储策略案例
 
 ###### 5.2.3.2.1 HOT 存储策略案例
@@ -916,18 +913,18 @@ hdfs fsck /hdfsdata -files -blocks -locations
 [DatanodeInfoWithStorage[192.168.204.103:9866,DS-a696fd6a-8c20-439c-81bd-2c75a29b4f77,DISK], DatanodeInfoWithStorage[192.168.204.102:9866,DS-6242d660-99f2-4ebc-af89-a647735f6646,DISK]]
 ```
 
-这里我们发现所有的文件块都是存储在 DISK，按照理论一个副本存储在 RAM_DISK，其他副本存储在 DISK 中，这是因为，我们还需要配置“dfs.datanode.max.locked.memory”，“dfs.block.size”参数。
+这里我们发现所有的文件块都是存储在 DISK，按照理论一个副本存储在 RAM_DISK，其他副本存储在 DISK 中，这是因为，我们还需要配置“dfs.datanode.max.locked.memory”，“dfs.blocksize”参数。 
 
 那么出现存储策略为 LAZY_PERSIST 时，文件块副本都存储在 DISK 上的原因有如下两点：
 
 ```txt
 （1）当客户端所在的 DataNode 节点没有 RAM_DISK 时，则会写入客户端所在的DataNode节点的 DISK 磁盘，其余副本会写入其他节点的 DISK 磁盘。
 
-（2）当客户端所在的 DataNode 有 RAM_DISK，但“dfs.datanode.max.locked.memory”参数值未设置或者设置过小（小于“dfs.block.size”参数值）时，则会写入客户端所在的DataNode 节点的 DISK 磁盘，其余副本会写入其他节点的 DISK 磁盘。
+（2）当客户端所在的 DataNode 有 RAM_DISK，但“dfs.datanode.max.locked.memory”参数值未设置或者设置过小（小于“dfs.blocksize”参数值）时，则会写入客户端所在的DataNode 节点的 DISK 磁盘，其余副本会写入其他节点的 DISK 磁盘。
 ```
 
 ```xml
-<!-- 用于在数据节点上的内存中缓存块副本的内存量（以字节为单位）。默认情况下，此参数设置为0，这将禁用	内存中缓存。内存值过小会导致内存中的总的可存储的数据块变少，但如果超过 DataNode 能承受的最大内存大小的话，部分内存块会被直接移出 。byte 类型,64k -->
+<!-- 用于在数据节点上的内存中缓存块副本的内存量（以字节为单位）。默认情况下，此参数设置为0，这将禁用内存中缓存。内存值过小会导致内存中的总的可存储的数据块变少，但如果超过DataNode能承受的最大内存大小的话，部分内存块会被直接移出 。byte 类型,64k -->
 <property>
 	<name>dfs.datanode.max.locked.memory</name>
 	<value>65536</value>
@@ -970,7 +967,7 @@ rm -rf /opt/data/hadoop-3.3.6/dfs/name/*
 **3. 问题解决**
 
 ```shell
-# 1.拷贝 SecondaryNameNode 中数据到原 NameNode 存储数据目录
+# 1.拷贝SecondaryNameNode中数据到原NameNode存储数据目录
 scp -r hadoop@hadoop103:/opt/data/hadoop-3.3.6/dfs/namesecondary/* /opt/data/hadoop-3.3.6/dfs/name/
 
 # 2.重新启动 NameNode
@@ -1042,7 +1039,7 @@ myhadoop.sh start
 
 说明：安全模式已经打开，块的数量没有达到要求。
 
-![[Pasted image 20230919192959.png]]
+![[Pasted image 20230919192959.png|675]]
 
 离开安全模式
 
@@ -1060,6 +1057,7 @@ hdfs dfsadmin -safemode leave
 ![[Pasted image 20230919212126.png]]
 
 集群已经正常
+
 ![[Pasted image 20230919213202.png|500]]
 
 #### 6.1.3 案例 3：模拟等待安全模式
@@ -1098,12 +1096,13 @@ HDFS 集群上已经有上传的数据了
 
 **可以采用如下方法找出是哪块磁盘慢：**
 
-==1. 通过心跳未联系时间。==
+==（1）通过心跳未联系时间。==
+
 一般出现慢磁盘现象，会影响到 DataNode 与 NameNode 之间的心跳。正常情况心跳时间间隔是 3s。超过 3s 说明有异常。
 
 ![[Pasted image 20230920092652.png]]
 
-==2. fio 命令，测试磁盘的读写性能==
+==（2）fio 命令，测试磁盘的读写性能==
 
 - 机械硬盘（HDD）：读取速度通常为100MB/s至200MB/s，写入速度通常为50MB/s至150MB/s。
 - 固态硬盘（SSD）：读取速度通常为300MB/s至550MB/s，写入速度通常为200MB/s至350MB/s。
@@ -1203,7 +1202,7 @@ hadoop fs -cp har:///output/input.har/* /
 
 ### 7.1 Apache和Apache集群间数据拷贝
 
-#### 7.1.1 scp 实现两个远程主机之间的文件复制
+#### 7.1.1 scp实现两个远程主机之间的文件复制
 
 ```shell
 # 在hadoop101创建一个文件
@@ -1225,7 +1224,7 @@ scp -r hadoop@hadoop101:/home/hadoop/hello.txt hello.txt
 scp -r hadoop@hadoop101:/home/hadoop/hello.txt hadoop@hadoop103:/home/hadoop
 ```
 
-#### 7.1.1 采用 distcp 命令实现两个Hadoop集群之间的递归数据复制
+#### 7.1.1 采用distcp命令实现两个Hadoop集群之间的递归数据复制
 
 不演示
 
@@ -1240,7 +1239,7 @@ hadoop distcp hdfs://hadoop102:8020/user/atguigu/hello.txt hdfs://hadoop105:8020
 
 1. 计算机性能
 	1. cpu、内存、磁盘、网络
-2. I/O操作优化
+2. I/O操作
 	1. 数据倾斜
 	2. Map运行时间过长，导致reduce等待过久
 	3. 小文件过多
@@ -1248,15 +1247,15 @@ hadoop distcp hdfs://hadoop102:8020/user/atguigu/hello.txt hdfs://hadoop105:8020
 
 ![[mapreduce框架内部核心工作机制.excalidraw|2500]]
 
-==mapper阶段：==
-1. 自定义分区，减少数据倾斜，参见[[MapReduce学习#2.4.3 Partitioner分区]]
-2. 减少溢写的次数
+==map阶段：==
+1. 自定义分区，减少数据倾斜，参见[[MapReduce学习#4.1.3 分区：Partitioner]]
+2. 减少环形缓冲区溢写的次数
 	- mapreduce.task.io.sort.mb（环形缓冲区大小，默认是100m，可以调高到200m）
 	- mapreduce.map.sort.spil.percent（环形缓冲区溢出的阈值，默认是80%，可以调高到90%）
-3. 增加每次merge合并次数
+3. 增加每次merge合并文件数
 	- mapreduce.task.io.sort.factor（默认是一次处理10个溢写文件，可以调高到20）
-4. 在不影响业务结果的前提下可以采用Combiner，参见[[MapReduce学习#2.4.5 Combiner合并]]
-5. 为了减少磁盘IO，可以采用snappy或者LZO压缩。参见[[MapReduce学习#6.4 压缩实操案例]]
+4. 在不影响业务结果的前提下可以采用Combiner，参见[[MapReduce学习#4.1.5 合并：Combiner]]
+5. 为了减少磁盘IO，可以采用snappy或者LZO压缩。参见[[MapReduce学习#7.4 压缩实操案例]]
 6. mapreduce.map.memory.mb 默认MapTask内存上限1024MB。
 	- 可以根据128m数据对应1G内存原则提高该内存。
 7. mapreduce.map.java.opts：控制MapTask堆内存大小。（如果内存不够，报：java.lang.OutOfMemoryError）
@@ -1287,8 +1286,9 @@ hadoop distcp hdfs://hadoop102:8020/user/atguigu/hello.txt hdfs://hadoop105:8020
 
 2. 减少数据倾斜的方法（针对数据大小倾斜）
 	1. 首先检查是否空值过多造成的数据倾斜
-	2. 能在 map 阶段提前处理，最好先在 Map 阶段处理。如：Combiner、MapJoin。参见[[MapReduce学习#5.1 编程案例——join算法]]中思路三
-	3. 设置多个 reduce 个数。参见[[MapReduce学习#5.2 编程案例——数据倾斜场景]]
+	2. 能在 map 阶段提前处理，最好先在 Map 阶段处理。如：Combiner、MapJoin。参见[[MapReduce学习#6.1 编程案例——join算法]]中思路三
+	3. 设置多个reduce个数。
+	4. 分多个mapreduce程序处理。参见[[MapReduce学习#6.2 编程案例——数据倾斜场景]]
 ## 九、Hadoop-Yarn生产经验
 
 ### 9.1 常用的调优参数
@@ -1296,7 +1296,7 @@ hadoop distcp hdfs://hadoop102:8020/user/atguigu/hello.txt hdfs://hadoop105:8020
 参见[[Yarn学习#四、Yarn 生产环境核心参数]]
 ### 9.2 容量调度器使用
 
-[[Yarn学习#5.2 容量调度器多队列提交案例]]
+[[Yarn学习#5.2 容量调度器案例]]
 ### 9.3 公平调度器使用
 
 [[Yarn学习#5.3 公平调度器案例]]
@@ -1306,15 +1306,14 @@ hadoop distcp hdfs://hadoop102:8020/user/atguigu/hello.txt hdfs://hadoop105:8020
 
 #### 10.1.1 Hadoop小文件过多弊端
 
-1. 会**大量占用NameNode 的内存空间**。HDFS 上每个文件都要在 NameNode 上创建对应的元数据，这个元数据的大小约为150byte，这样当小文件比较多的时候，就会产生很多的元数据文件。
+1. 会**大量占用NameNode内存空间**。HDFS 上每个文件都要在 NameNode 上创建对应的元数据，这个元数据的大小约为150byte，这样当小文件比较多的时候，就会产生很多的元数据文件。
 2. 元数据文件过多，使得**寻址索引速度变慢**。
 3. 在进行 MR 计算时，**会生成过多切片，需要启动过多的 MapTask**。每个MapTask 处理的数据量小，导致 MapTask 的处理时间比启动时间还小，白白消耗资源。
+#### 10.1.2 Hadoop小文件解决方案
 
-#### 10.1.2 Hadoop 小文件解决方案
-
-1. 在数据采集的时候，就将小文件或小批数据合成大文件再上传 HDFS（数据源头）
+1. 在数据采集的时候，将小文件或小批数据合成大文件再上传 HDFS（数据源头）
 2. Hadoop Archive（存储方向）。参见[[#6.4 小文件归档]]。是一个高效的将小文件放入 HDFS 块中的文件存档工具，能够将多个小文件打包成一个 HAR 文件，从而达到减少 NameNode 的内存使用。
-3. CombineTextInputFormat（计算方向）。参见[[MapReduce学习#2.4.5 Combiner合并]]。CombineTextInputFormat 用于将多个小文件在切片过程中生成一个单独的切片或者少量的切片。
+3. CombineTextInputFormat（计算方向）。参见[[MapReduce学习#4.1.5 合并：Combiner]]。CombineTextInputFormat 用于将多个小文件在切片过程中生成一个单独的切片或者少量的切片。
 4. 开启 uber 模式，实现 JVM 重用（计算方向）
 
 默认情况下，**每个 Task 任务都需要启动一个 JVM 来运行**，==如果 Task 任务计算的数据量很小，我们可以让同一个 Job 的多个 Task 运行在一个 JVM 中==，不必为每个 Task 都开启一个 JVM。
@@ -1418,13 +1417,13 @@ hadoop jar /opt/module/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-clie
 
 平均每个节点运行 10 个 / 3 台 ≈ 3 个任务（4 3 3）
 
-#### 10.3.2 HDFS 参数调优
+#### 10.3.2 HDFS参数调优
 
 1. 内存设置。参见 [[#1.1.3 内存配置]]
 2. namenode心跳并发配置。参见[[#1.2 NameNode心跳并发配置]]
 3. 启动回收站。参见[[#1.3.1 启动回收站]]
 
-#### 10.3.3 MapReduce 参数调优
+#### 10.3.3 MapReduce参数调优
 
 参见[[#8.2 MapReduce常用调优参数]] 整理如下（以下参数为默认值，根据实际调整）：
 
@@ -1525,6 +1524,6 @@ vim mapred-site.xml
 </property>
 ```
 
-#### 10.3.4 Yarn 参数调优
+#### 10.3.4 Yarn参数调优
 
 参见[[Yarn学习#四、Yarn 生产环境核心参数]]

@@ -56,8 +56,8 @@ spark和hadoop-mapreduce
 	"elements": [
 		{
 			"type": "text",
-			"version": 194,
-			"versionNonce": 257453252,
+			"version": 195,
+			"versionNonce": 365905739,
 			"isDeleted": false,
 			"id": "7n3icAxy",
 			"fillStyle": "hachure",
@@ -67,7 +67,7 @@ spark和hadoop-mapreduce
 			"opacity": 100,
 			"angle": 0,
 			"x": -198.87977430555554,
-			"y": -54.64620196630086,
+			"y": -55.190373980809774,
 			"strokeColor": "#e03131",
 			"backgroundColor": "transparent",
 			"width": 140,
@@ -77,7 +77,7 @@ spark和hadoop-mapreduce
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1694317343317,
+			"updated": 1695305189653,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -93,43 +93,43 @@ spark和hadoop-mapreduce
 		},
 		{
 			"type": "rectangle",
-			"version": 303,
-			"versionNonce": 683414980,
+			"version": 306,
+			"versionNonce": 729658629,
 			"isDeleted": false,
 			"id": "RB2JgAMEka6cgzbMpgz7T",
 			"fillStyle": "hachure",
-			"strokeWidth": 1,
+			"strokeWidth": 0.5,
 			"strokeStyle": "solid",
-			"roughness": 1,
+			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
-			"x": -201.28698391384546,
-			"y": 18.15796576605908,
+			"x": -200.7427828349764,
+			"y": 18.702224973648413,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
 			"width": 229.00000000000006,
 			"height": 98.88888888888886,
-			"seed": 2047646758,
+			"seed": 727199883,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
 				"type": 3
 			},
 			"boundElements": [],
-			"updated": 1694317336117,
+			"updated": 1695305194475,
 			"link": null,
 			"locked": false
 		},
 		{
 			"type": "rectangle",
-			"version": 29,
-			"versionNonce": 1190343718,
+			"version": 31,
+			"versionNonce": 1633624587,
 			"isDeleted": false,
 			"id": "vs8NqkKXSFauAkfcEwJIZ",
 			"fillStyle": "hachure",
-			"strokeWidth": 1,
+			"strokeWidth": 0.5,
 			"strokeStyle": "solid",
-			"roughness": 1,
+			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
 			"x": 165.91671752929688,
@@ -138,7 +138,7 @@ spark和hadoop-mapreduce
 			"backgroundColor": "transparent",
 			"width": 139,
 			"height": 44,
-			"seed": 320978810,
+			"seed": 476412101,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
@@ -150,7 +150,7 @@ spark和hadoop-mapreduce
 					"id": "py6oWA8K"
 				}
 			],
-			"updated": 1693889817947,
+			"updated": 1695305219979,
 			"link": null,
 			"locked": false
 		},
@@ -193,14 +193,14 @@ spark和hadoop-mapreduce
 		},
 		{
 			"type": "rectangle",
-			"version": 159,
-			"versionNonce": 186693670,
+			"version": 161,
+			"versionNonce": 159219941,
 			"isDeleted": false,
 			"id": "ZfXQ0zA9eieXn3zN6OT4k",
 			"fillStyle": "hachure",
-			"strokeWidth": 1,
+			"strokeWidth": 0.5,
 			"strokeStyle": "solid",
-			"roughness": 1,
+			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
 			"x": 177.25,
@@ -209,7 +209,7 @@ spark和hadoop-mapreduce
 			"backgroundColor": "transparent",
 			"width": 139,
 			"height": 44,
-			"seed": 273555258,
+			"seed": 1688014155,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
@@ -221,7 +221,7 @@ spark和hadoop-mapreduce
 					"id": "k1BAVbkd"
 				}
 			],
-			"updated": 1693890128914,
+			"updated": 1695305262371,
 			"link": null,
 			"locked": false
 		},
@@ -264,8 +264,8 @@ spark和hadoop-mapreduce
 		},
 		{
 			"type": "line",
-			"version": 73,
-			"versionNonce": 1965351590,
+			"version": 99,
+			"versionNonce": 1030785797,
 			"isDeleted": false,
 			"id": "TjfXqGt-jZvofufV3-46L",
 			"fillStyle": "hachure",
@@ -274,12 +274,12 @@ spark和hadoop-mapreduce
 			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
-			"x": 247.41668701171875,
-			"y": -135.61978149414062,
+			"x": 235.98811558314736,
+			"y": -119.83747064499629,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
-			"width": 30.6666259765625,
-			"height": 57.333343505859375,
+			"width": 19.238054547991112,
+			"height": 41.55103265671504,
 			"seed": 17596966,
 			"groupIds": [],
 			"frameId": null,
@@ -287,7 +287,7 @@ spark和hadoop-mapreduce
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1693889817947,
+			"updated": 1695305212739,
 			"link": null,
 			"locked": false,
 			"startBinding": null,
@@ -301,15 +301,15 @@ spark和hadoop-mapreduce
 					0
 				],
 				[
-					-30.6666259765625,
-					57.333343505859375
+					-19.238054547991112,
+					41.55103265671504
 				]
 			]
 		},
 		{
 			"type": "text",
-			"version": 101,
-			"versionNonce": 101483194,
+			"version": 114,
+			"versionNonce": 752654539,
 			"isDeleted": false,
 			"id": "autrsdRS",
 			"fillStyle": "hachure",
@@ -318,30 +318,30 @@ spark和hadoop-mapreduce
 			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
-			"x": 238.75006103515625,
-			"y": -115.61979675292969,
+			"x": 234.9405372256324,
+			"y": -100.92591712588356,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
 			"width": 77.99995422363281,
-			"height": 19.500000000000007,
+			"height": 17.940000000000005,
 			"seed": 231034214,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1693889817947,
+			"updated": 1695305217004,
 			"link": null,
 			"locked": false,
 			"fontSize": 15.600000000000007,
-			"fontFamily": 1,
+			"fontFamily": 2,
 			"text": "输入数据集",
 			"rawText": "输入数据集",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
 			"originalText": "输入数据集",
-			"lineHeight": 1.25,
-			"baseline": 13
+			"lineHeight": 1.15,
+			"baseline": 14
 		},
 		{
 			"type": "text",
@@ -379,322 +379,6 @@ spark和hadoop-mapreduce
 			"originalText": "map task",
 			"lineHeight": 1.15,
 			"baseline": 14
-		},
-		{
-			"type": "freedraw",
-			"version": 15,
-			"versionNonce": 1790236646,
-			"isDeleted": false,
-			"id": "5ia7SgZ0H1bclzQd9noIi",
-			"fillStyle": "hachure",
-			"strokeWidth": 0.5,
-			"strokeStyle": "solid",
-			"roughness": 0,
-			"opacity": 100,
-			"angle": 0,
-			"x": 205.41668701171875,
-			"y": -12.953125,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
-			"width": 15.33331298828125,
-			"height": 29.333343505859375,
-			"seed": 10285350,
-			"groupIds": [],
-			"frameId": null,
-			"roundness": null,
-			"boundElements": [],
-			"updated": 1693889820042,
-			"link": null,
-			"locked": false,
-			"points": [
-				[
-					0,
-					0
-				],
-				[
-					0,
-					0.66668701171875
-				],
-				[
-					-0.6666259765625,
-					3.333343505859375
-				],
-				[
-					-2,
-					6.66668701171875
-				],
-				[
-					-4,
-					10
-				],
-				[
-					-6.6666259765625,
-					14
-				],
-				[
-					-8.6666259765625,
-					16.66668701171875
-				],
-				[
-					-10.6666259765625,
-					20.66668701171875
-				],
-				[
-					-12.6666259765625,
-					23.333343505859375
-				],
-				[
-					-13.33331298828125,
-					26
-				],
-				[
-					-14,
-					27.333343505859375
-				],
-				[
-					-14.6666259765625,
-					28
-				],
-				[
-					-15.33331298828125,
-					29.333343505859375
-				],
-				[
-					-15.33331298828125,
-					29.333343505859375
-				]
-			],
-			"lastCommittedPoint": null,
-			"simulatePressure": true,
-			"pressures": []
-		},
-		{
-			"type": "freedraw",
-			"version": 19,
-			"versionNonce": 115730490,
-			"isDeleted": false,
-			"id": "aEIMFZGaQo3ABSAXDlHgV",
-			"fillStyle": "hachure",
-			"strokeWidth": 0.5,
-			"strokeStyle": "solid",
-			"roughness": 0,
-			"opacity": 100,
-			"angle": 0,
-			"x": 210.0833740234375,
-			"y": -8.953125,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
-			"width": 22.66668701171875,
-			"height": 34.66668701171875,
-			"seed": 1771143546,
-			"groupIds": [],
-			"frameId": null,
-			"roundness": null,
-			"boundElements": [],
-			"updated": 1693889824498,
-			"link": null,
-			"locked": false,
-			"points": [
-				[
-					0,
-					0
-				],
-				[
-					0.66668701171875,
-					0
-				],
-				[
-					0.66668701171875,
-					1.333343505859375
-				],
-				[
-					2.66668701171875,
-					4.66668701171875
-				],
-				[
-					5.33331298828125,
-					8
-				],
-				[
-					7.33331298828125,
-					12
-				],
-				[
-					10,
-					14.66668701171875
-				],
-				[
-					12,
-					18.66668701171875
-				],
-				[
-					14,
-					22
-				],
-				[
-					16,
-					24
-				],
-				[
-					16.66668701171875,
-					26.66668701171875
-				],
-				[
-					18,
-					28
-				],
-				[
-					20,
-					30
-				],
-				[
-					20,
-					31.333343505859375
-				],
-				[
-					20.66668701171875,
-					32.66668701171875
-				],
-				[
-					22,
-					34.66668701171875
-				],
-				[
-					22.66668701171875,
-					34.66668701171875
-				],
-				[
-					22.66668701171875,
-					34.66668701171875
-				]
-			],
-			"lastCommittedPoint": null,
-			"simulatePressure": true,
-			"pressures": []
-		},
-		{
-			"type": "freedraw",
-			"version": 24,
-			"versionNonce": 543203642,
-			"isDeleted": false,
-			"id": "gZBLVRZn_QxZlXWFh_UXH",
-			"fillStyle": "hachure",
-			"strokeWidth": 0.5,
-			"strokeStyle": "solid",
-			"roughness": 0,
-			"opacity": 100,
-			"angle": 0,
-			"x": 226.75006103515625,
-			"y": -10.953125,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
-			"width": 103.33331298828125,
-			"height": 38.666656494140625,
-			"seed": 821514342,
-			"groupIds": [],
-			"frameId": null,
-			"roundness": null,
-			"boundElements": [],
-			"updated": 1693889825698,
-			"link": null,
-			"locked": false,
-			"points": [
-				[
-					0,
-					0
-				],
-				[
-					0.6666259765625,
-					-0.666656494140625
-				],
-				[
-					1.33331298828125,
-					-0.666656494140625
-				],
-				[
-					5.33331298828125,
-					-0.666656494140625
-				],
-				[
-					10.6666259765625,
-					0.66668701171875
-				],
-				[
-					17.33331298828125,
-					3.333343505859375
-				],
-				[
-					30.6666259765625,
-					10.66668701171875
-				],
-				[
-					41.33331298828125,
-					16.66668701171875
-				],
-				[
-					52,
-					21.333343505859375
-				],
-				[
-					62,
-					24.66668701171875
-				],
-				[
-					69.33331298828125,
-					29.333343505859375
-				],
-				[
-					76.6666259765625,
-					32
-				],
-				[
-					82,
-					34
-				],
-				[
-					88.6666259765625,
-					35.333343505859375
-				],
-				[
-					92,
-					36
-				],
-				[
-					95.33331298828125,
-					37.333343505859375
-				],
-				[
-					97.33331298828125,
-					37.333343505859375
-				],
-				[
-					99.33331298828125,
-					37.333343505859375
-				],
-				[
-					101.33331298828125,
-					37.333343505859375
-				],
-				[
-					102,
-					37.333343505859375
-				],
-				[
-					102.6666259765625,
-					37.333343505859375
-				],
-				[
-					103.33331298828125,
-					38
-				],
-				[
-					103.33331298828125,
-					38
-				]
-			],
-			"lastCommittedPoint": null,
-			"simulatePressure": true,
-			"pressures": []
 		},
 		{
 			"type": "text",
@@ -735,8 +419,8 @@ spark和hadoop-mapreduce
 		},
 		{
 			"type": "line",
-			"version": 74,
-			"versionNonce": 405459494,
+			"version": 75,
+			"versionNonce": 679956581,
 			"isDeleted": false,
 			"id": "eYZCZVq87LStlMU-Z1OO9",
 			"fillStyle": "hachure",
@@ -745,8 +429,8 @@ spark和hadoop-mapreduce
 			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
-			"x": 125.41668701171875,
-			"y": 73.046875,
+			"x": 124.87248593284971,
+			"y": 73.59104701450894,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
 			"width": 1.3333740234375,
@@ -758,7 +442,7 @@ spark和hadoop-mapreduce
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1693889987196,
+			"updated": 1695305246651,
 			"link": null,
 			"locked": false,
 			"startBinding": null,
@@ -1329,8 +1013,8 @@ spark和hadoop-mapreduce
 		},
 		{
 			"type": "text",
-			"version": 120,
-			"versionNonce": 588768742,
+			"version": 122,
+			"versionNonce": 1342637605,
 			"isDeleted": false,
 			"id": "ScLfgYUa",
 			"fillStyle": "hachure",
@@ -1344,25 +1028,25 @@ spark和hadoop-mapreduce
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
 			"width": 87.2799072265625,
-			"height": 13.645830154418947,
+			"height": 12.55416374206543,
 			"seed": 1780485370,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1693890159146,
+			"updated": 1695305258116,
 			"link": null,
 			"locked": false,
 			"fontSize": 10.916664123535158,
-			"fontFamily": 1,
+			"fontFamily": 2,
 			"text": "一组聚合运行一次",
 			"rawText": "一组聚合运行一次",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
 			"originalText": "一组聚合运行一次",
-			"lineHeight": 1.25,
-			"baseline": 9
+			"lineHeight": 1.15,
+			"baseline": 10
 		},
 		{
 			"type": "text",
@@ -1403,8 +1087,8 @@ spark和hadoop-mapreduce
 		},
 		{
 			"type": "text",
-			"version": 130,
-			"versionNonce": 1109404282,
+			"version": 132,
+			"versionNonce": 558206725,
 			"isDeleted": false,
 			"id": "i39rnaeB",
 			"fillStyle": "hachure",
@@ -1418,136 +1102,510 @@ spark和hadoop-mapreduce
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
 			"width": 63,
-			"height": 19.694476431350058,
+			"height": 18.118918316842052,
 			"seed": 731452838,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1693890194017,
+			"updated": 1695305266796,
 			"link": null,
 			"locked": false,
 			"fontSize": 15.755581145080047,
-			"fontFamily": 1,
+			"fontFamily": 2,
 			"text": "聚合运算",
 			"rawText": "聚合运算",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
 			"originalText": "聚合运算",
-			"lineHeight": 1.25,
-			"baseline": 13
+			"lineHeight": 1.15,
+			"baseline": 14
 		},
 		{
-			"id": "3w15wmMq",
 			"type": "text",
-			"x": -192.3827701144749,
-			"y": 31.61523389462127,
-			"width": 216.9866943359375,
-			"height": 65.33333333333331,
-			"angle": 0,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
+			"version": 202,
+			"versionNonce": 1119293892,
+			"isDeleted": false,
+			"id": "3w15wmMq",
 			"fillStyle": "hachure",
 			"strokeWidth": 0.5,
 			"strokeStyle": "solid",
 			"roughness": 0,
 			"opacity": 100,
-			"groupIds": [],
-			"frameId": null,
-			"roundness": null,
-			"seed": 1942653252,
-			"version": 202,
-			"versionNonce": 1119293892,
-			"isDeleted": false,
-			"boundElements": null,
-			"updated": 1694317338885,
-			"link": null,
-			"locked": false,
-			"text": "map reduce编程模型\n\nspark和hadoop-mapreduce\n都是对map reduce编程模型的实现",
-			"rawText": "map reduce编程模型\n\nspark和hadoop-mapreduce\n都是对map reduce编程模型的实现",
-			"fontSize": 14.202898550724633,
-			"fontFamily": 2,
-			"textAlign": "left",
-			"verticalAlign": "top",
-			"baseline": 62,
-			"containerId": null,
-			"originalText": "map reduce编程模型\n\nspark和hadoop-mapreduce\n都是对map reduce编程模型的实现",
-			"lineHeight": 1.15
-		},
-		{
-			"type": "text",
-			"version": 319,
-			"versionNonce": 869090244,
-			"isDeleted": true,
-			"id": "7ZqvjEZO",
-			"fillStyle": "hachure",
-			"strokeWidth": 1,
-			"strokeStyle": "solid",
-			"roughness": 1,
-			"opacity": 100,
 			"angle": 0,
-			"x": -159.24996948242188,
-			"y": 76.18018798828125,
+			"x": -192.3827701144749,
+			"y": 31.61523389462127,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
-			"width": 4.4453125,
-			"height": 18.4,
-			"seed": 32799206,
+			"width": 216.9866943359375,
+			"height": 65.33333333333331,
+			"seed": 1942653252,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1694317308830,
+			"updated": 1694317338885,
 			"link": null,
 			"locked": false,
-			"fontSize": 16,
+			"fontSize": 14.202898550724633,
 			"fontFamily": 2,
-			"text": "",
-			"rawText": "",
+			"text": "map reduce编程模型\n\nspark和hadoop-mapreduce\n都是对map reduce编程模型的实现",
+			"rawText": "map reduce编程模型\n\nspark和hadoop-mapreduce\n都是对map reduce编程模型的实现",
 			"textAlign": "left",
-			"verticalAlign": "middle",
-			"containerId": "RB2JgAMEka6cgzbMpgz7T",
-			"originalText": "",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "map reduce编程模型\n\nspark和hadoop-mapreduce\n都是对map reduce编程模型的实现",
 			"lineHeight": 1.15,
-			"baseline": 15
+			"baseline": 62
 		},
 		{
-			"id": "R9orXZSo",
-			"type": "text",
-			"x": -87.1975962320964,
-			"y": 244.2077699731804,
-			"width": 5.556640625,
-			"height": 23,
+			"id": "HSNwrfQD0prgHRgzyan58",
+			"type": "line",
+			"x": 212.91340080140134,
+			"y": -26.25060647228713,
+			"width": 55.510021391369094,
+			"height": 41.9047619047619,
 			"angle": 0,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
 			"fillStyle": "hachure",
-			"strokeWidth": 0.5,
+			"strokeWidth": 1,
 			"strokeStyle": "solid",
 			"roughness": 0,
 			"opacity": 100,
 			"groupIds": [],
 			"frameId": null,
-			"roundness": null,
-			"seed": 1691564924,
-			"version": 2,
-			"versionNonce": 1907182148,
-			"isDeleted": true,
+			"roundness": {
+				"type": 2
+			},
+			"seed": 603414789,
+			"version": 48,
+			"versionNonce": 1929052325,
+			"isDeleted": false,
 			"boundElements": null,
-			"updated": 1694317275174,
+			"updated": 1695305249212,
 			"link": null,
 			"locked": false,
-			"text": "",
-			"rawText": "",
-			"fontSize": 20,
-			"fontFamily": 2,
-			"textAlign": "left",
-			"verticalAlign": "top",
-			"baseline": 18,
-			"containerId": null,
-			"originalText": "",
-			"lineHeight": 1.15
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					-55.510021391369094,
+					41.9047619047619
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": null,
+			"endBinding": null,
+			"startArrowhead": null,
+			"endArrowhead": null
+		},
+		{
+			"id": "Au4D16Yv3P1am_xh2zz8E",
+			"type": "line",
+			"x": 222.70942712208586,
+			"y": -25.16217525018891,
+			"width": 23.945486886160722,
+			"height": 51.156470889136926,
+			"angle": 0,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"fillStyle": "hachure",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 0,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
+			"seed": 375052203,
+			"version": 35,
+			"versionNonce": 1171600459,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1695305238393,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					23.945486886160722,
+					51.156470889136926
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": null,
+			"endBinding": null,
+			"startArrowhead": null,
+			"endArrowhead": null
+		},
+		{
+			"id": "FjGFK7nnqSEY9CYPZRhZV",
+			"type": "line",
+			"x": 251.0086388966394,
+			"y": -24.617945106959752,
+			"width": 105.03412155877976,
+			"height": 64.76190476190479,
+			"angle": 0,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"fillStyle": "hachure",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 0,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
+			"seed": 343886309,
+			"version": 54,
+			"versionNonce": 2140447531,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1695305243231,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					105.03412155877976,
+					64.76190476190479
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": null,
+			"endBinding": null,
+			"startArrowhead": null,
+			"endArrowhead": null
+		},
+		{
+			"type": "freedraw",
+			"version": 16,
+			"versionNonce": 1251230859,
+			"isDeleted": true,
+			"id": "5ia7SgZ0H1bclzQd9noIi",
+			"fillStyle": "hachure",
+			"strokeWidth": 0.5,
+			"strokeStyle": "solid",
+			"roughness": 0,
+			"opacity": 100,
+			"angle": 0,
+			"x": 205.41668701171875,
+			"y": -12.953125,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"width": 15.33331298828125,
+			"height": 29.333343505859375,
+			"seed": 10285350,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"boundElements": [],
+			"updated": 1695305227658,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					0.66668701171875
+				],
+				[
+					-0.6666259765625,
+					3.333343505859375
+				],
+				[
+					-2,
+					6.66668701171875
+				],
+				[
+					-4,
+					10
+				],
+				[
+					-6.6666259765625,
+					14
+				],
+				[
+					-8.6666259765625,
+					16.66668701171875
+				],
+				[
+					-10.6666259765625,
+					20.66668701171875
+				],
+				[
+					-12.6666259765625,
+					23.333343505859375
+				],
+				[
+					-13.33331298828125,
+					26
+				],
+				[
+					-14,
+					27.333343505859375
+				],
+				[
+					-14.6666259765625,
+					28
+				],
+				[
+					-15.33331298828125,
+					29.333343505859375
+				],
+				[
+					-15.33331298828125,
+					29.333343505859375
+				]
+			],
+			"lastCommittedPoint": null,
+			"simulatePressure": true,
+			"pressures": []
+		},
+		{
+			"type": "freedraw",
+			"version": 20,
+			"versionNonce": 885832171,
+			"isDeleted": true,
+			"id": "aEIMFZGaQo3ABSAXDlHgV",
+			"fillStyle": "hachure",
+			"strokeWidth": 0.5,
+			"strokeStyle": "solid",
+			"roughness": 0,
+			"opacity": 100,
+			"angle": 0,
+			"x": 210.0833740234375,
+			"y": -8.953125,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"width": 22.66668701171875,
+			"height": 34.66668701171875,
+			"seed": 1771143546,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"boundElements": [],
+			"updated": 1695305226963,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0.66668701171875,
+					0
+				],
+				[
+					0.66668701171875,
+					1.333343505859375
+				],
+				[
+					2.66668701171875,
+					4.66668701171875
+				],
+				[
+					5.33331298828125,
+					8
+				],
+				[
+					7.33331298828125,
+					12
+				],
+				[
+					10,
+					14.66668701171875
+				],
+				[
+					12,
+					18.66668701171875
+				],
+				[
+					14,
+					22
+				],
+				[
+					16,
+					24
+				],
+				[
+					16.66668701171875,
+					26.66668701171875
+				],
+				[
+					18,
+					28
+				],
+				[
+					20,
+					30
+				],
+				[
+					20,
+					31.333343505859375
+				],
+				[
+					20.66668701171875,
+					32.66668701171875
+				],
+				[
+					22,
+					34.66668701171875
+				],
+				[
+					22.66668701171875,
+					34.66668701171875
+				],
+				[
+					22.66668701171875,
+					34.66668701171875
+				]
+			],
+			"lastCommittedPoint": null,
+			"simulatePressure": true,
+			"pressures": []
+		},
+		{
+			"type": "freedraw",
+			"version": 25,
+			"versionNonce": 1615952683,
+			"isDeleted": true,
+			"id": "gZBLVRZn_QxZlXWFh_UXH",
+			"fillStyle": "hachure",
+			"strokeWidth": 0.5,
+			"strokeStyle": "solid",
+			"roughness": 0,
+			"opacity": 100,
+			"angle": 0,
+			"x": 226.75006103515625,
+			"y": -10.953125,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"width": 103.33331298828125,
+			"height": 38.666656494140625,
+			"seed": 821514342,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"boundElements": [],
+			"updated": 1695305228178,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0.6666259765625,
+					-0.666656494140625
+				],
+				[
+					1.33331298828125,
+					-0.666656494140625
+				],
+				[
+					5.33331298828125,
+					-0.666656494140625
+				],
+				[
+					10.6666259765625,
+					0.66668701171875
+				],
+				[
+					17.33331298828125,
+					3.333343505859375
+				],
+				[
+					30.6666259765625,
+					10.66668701171875
+				],
+				[
+					41.33331298828125,
+					16.66668701171875
+				],
+				[
+					52,
+					21.333343505859375
+				],
+				[
+					62,
+					24.66668701171875
+				],
+				[
+					69.33331298828125,
+					29.333343505859375
+				],
+				[
+					76.6666259765625,
+					32
+				],
+				[
+					82,
+					34
+				],
+				[
+					88.6666259765625,
+					35.333343505859375
+				],
+				[
+					92,
+					36
+				],
+				[
+					95.33331298828125,
+					37.333343505859375
+				],
+				[
+					97.33331298828125,
+					37.333343505859375
+				],
+				[
+					99.33331298828125,
+					37.333343505859375
+				],
+				[
+					101.33331298828125,
+					37.333343505859375
+				],
+				[
+					102,
+					37.333343505859375
+				],
+				[
+					102.6666259765625,
+					37.333343505859375
+				],
+				[
+					103.33331298828125,
+					38
+				],
+				[
+					103.33331298828125,
+					38
+				]
+			],
+			"lastCommittedPoint": null,
+			"simulatePressure": true,
+			"pressures": []
 		}
 	],
 	"appState": {
@@ -1565,10 +1623,10 @@ spark和hadoop-mapreduce
 		"currentItemTextAlign": "left",
 		"currentItemStartArrowhead": null,
 		"currentItemEndArrowhead": "arrow",
-		"scrollX": 450.71610344780817,
-		"scrollY": 265.52598111188894,
+		"scrollX": 231.10021294487842,
+		"scrollY": 243.15537564313905,
 		"zoom": {
-			"value": 0.8999999999999999
+			"value": 1.05
 		},
 		"currentItemRoundness": "round",
 		"gridSize": null,

@@ -14,11 +14,10 @@ tags:
 1. 如果管理集群资源？
 2. 如何给任务分配资源？
 
-Yarn 是一个资源调度平台，负责为运算程序提供服务器运算资源，相当于一个分布式的操作系统平台，而 MapReduce 等运算程序则相当于运行于操作系统之上的应用程序。
+Yarn 是一个分布式资源调度平台，负责为运算程序提供服务器运算资源，相当于一个分布式的操作系统平台，而 MapReduce 等运算程序则相当于运行于操作系统之上的应用程序。
 ### 1.1 Yarn基础架构
 
-YARN 主要由 ResourceManager、NodeManager、ApplicationMaster 和 Container 等组件构成。
-见[[Hadoop3.x学习笔记#1.1.3 Hadoop的组成]] 的第三点。
+YARN 主要由 ResourceManager、NodeManager、ApplicationMaster 和 Container 等组件构成。见[[Hadoop3.x学习笔记#^eebb41]]
 ### 1.2 Yarn工作机制
 
 见[[MapReduce学习#2.2 mapreduce程序在YARN上启动-运行-注销的全流程]]
@@ -43,7 +42,7 @@ FIFO 调度器（First In First Out）：**单队列，根据提交作业的先�
 
 缺点：不支持多队列，生产环境很少使用；
 
-![[FIFO调度器.excalidraw|500]]
+![[FIFO调度器.excalidraw|400]]
 ### 2.2 容量调度器（Capacity Scheduler）
 
 Capacity Scheduler 是 Yahoo 开发的多用户调度器。
@@ -57,15 +56,15 @@ Capacity Scheduler 是 Yahoo 开发的多用户调度器。
 	1. 支持多用户共享集群和多应用程序同时运行
 	2. 为了防止同一个用户的作业独占队列中的资源，该调度器会对同一用户提交的作业所占资源量进行限定
 
-![[容器调度器资源分配算法.excalidraw]]
+![[容器调度器资源分配算法.excalidraw|600]]
 ### 2.3 公平调度器（Fair Scheduler）
 
 Fair Schedulere 是 Facebook 开发的多用户调度器。
 
-![[公平调度器特点.png]]
+![[公平调度器特点.png|400]]
 
 
-![[Pasted image 20230915171326.png]]
+![[Pasted image 20230915171326.png|400]]
 
 有三个队列 queue1、Queue2、Queue3，每个队列中的 job 按照优先级分配资源，优先级越高分配的资源越多，但是每个 job 都会分配到资源以确保公平。**在资源有限的情况下，每个 job 理想情况下获得的计算资源与实际获得的计算资源存在一种差距，这个差距就叫做差额**。==在同一个队列中，job 的资源缺额越大，越先获得资源优先执行==。作业是按照缺额的高低来先后执行的。在 Fair调度器中，我们不需要预先占用一定的系统资源，Fair 调度器会为所有运行的 job动态的调整系统资源。
 
@@ -124,7 +123,7 @@ queueC：33.33 - 3.33 = 30
 
 2. **作业资源分配**
 
-![[作业资源分配.excalidraw|600]]
+![[作业资源分配.excalidraw|500]]
 ##### 2.3.2.3 DRF策略
 
 DRF（Dominant Resource Fairness），我们之前说的资源，都是单一标准，例如只**考虑内存（也是Yarn默
@@ -140,12 +139,11 @@ CPU主导的，针对这种情况，我们可以选择DRF策略对不同应用�
 
 Yarn 状态的查询，除了可以在 hadoop102:8088 页面查看外，还可以通过命令操作。常见的命令操作如下所示：
 
-
 ```shell
 # 列出所有 Application
 yarn application -list
 
-# Kill 掉 Application：
+# Kill掉某个Application：
 # yarn application -kill job_id
 yarn application -kill application_1612577921195_0001
 
@@ -204,7 +202,8 @@ yarn.nodemanager.pmem-check-enabled是否开启物理内存检查限制container
 yarn.nodemanager.vmem-check-enabled是否开启虚拟内存检查限制container，默认打开，建议修改为关闭
 yarn.nodemanager.vmem-pmem-ratio虚拟内存物理内存比例，默认2.1
 ```
-Contain相关
+
+3. Contain相关
 
 ```txt
 yarn.scheduler.minimum-allocation-mb 容器最最小内存，默认1G
@@ -216,9 +215,10 @@ yarn.scheduler.maximum-allocation-vcores 容器最大CPU核数，默认4个
 ## 五、Yarn 案例实操
 
 注：
-- ==调整下列参数之前尽量拍摄 Linux 快照，否则后续的案例，还需要重写准备集群。==
-- ==以下操作全部做完过后，快照回去或者手动将配置文件修改成之前的状态，因为本
-身资源就不够，分成了这么多，不方便以后测试==
+
+==调整下列参数之前尽量拍摄 Linux 快照，否则后续的案例，还需要重写准备集群。==
+
+==以下操作全部做完过后，快照回去或者手动将配置文件修改成之前的状态，因为本身资源就不够，分成了这么多，不方便以后测试==
 ### 5.1 Yarn生产环境核心参数配置
 
 每台服务器的资源：4G 内存，8核CPU，16线程。
@@ -312,7 +312,7 @@ myhadoop.sh start
 hadoop jar /opt/module/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /input /output
 ```
 
-### 5.2 容量调度器多队列提交案例
+### 5.2 容量调度器案例
 
 1. 在生产环境怎么创建队列？
 	-  调度器默认就 1 个 default 队列，不能满足生产要求。
@@ -610,7 +610,7 @@ start-yarn.sh
 hadoop jar /opt/module/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar pi -D mapreduce.job.queuename=test 1 1
 ```
 
-提交任务时不指定队列，按照配置规则，任务会到 root.atguigu.atguigu 队列
+提交任务时不指定队列，按照配置规则，任务会到 root.iamwfm 队列
 
 ```shell
 hadoop jar /opt/module/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar pi 1 1

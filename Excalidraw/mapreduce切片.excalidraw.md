@@ -21,10 +21,10 @@ block_1 ^wEuw4BgA
 72M ^oANIxtU2
 
 文件a.txt，大小200M，块大小指定128M，
-切成两块存储在hdfs中 ^EahKiBzV
+切成两块存储在hdfs中（block_0，block_1） ^EahKiBzV
 
 如果mapreduce程序，指定切片大小100M，
-对分别对两个块进行逻辑切分
+分别对两个块进行逻辑切分
 block_0切为100M和28M
 block_1为72M
 相应会启动三个map task ^d1PNEXIq
@@ -42,29 +42,29 @@ block_1为72M
 	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/1.9.14",
 	"elements": [
 		{
-			"id": "G4lpXVvhG4MOnwzN9ooaS",
 			"type": "rectangle",
-			"x": -245.83334350585938,
-			"y": -204.953125,
-			"width": 179.33334350585938,
-			"height": 42.666656494140625,
+			"version": 54,
+			"versionNonce": 1297430679,
+			"isDeleted": false,
+			"id": "G4lpXVvhG4MOnwzN9ooaS",
+			"fillStyle": "solid",
+			"strokeWidth": 0.5,
+			"strokeStyle": "solid",
+			"roughness": 0,
+			"opacity": 100,
 			"angle": 0,
+			"x": -244.74488321940106,
+			"y": -204.953125,
 			"strokeColor": "#1971c2",
 			"backgroundColor": "#a5d8ff",
-			"fillStyle": "solid",
-			"strokeWidth": 1,
-			"strokeStyle": "solid",
-			"roughness": 1,
-			"opacity": 100,
+			"width": 179.33334350585938,
+			"height": 42.666656494140625,
+			"seed": 2002835321,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
 				"type": 3
 			},
-			"seed": 446237308,
-			"version": 50,
-			"versionNonce": 68236156,
-			"isDeleted": false,
 			"boundElements": [
 				{
 					"id": "UgaKbvzAZlmVdLAftMbGN",
@@ -75,46 +75,46 @@ block_1为72M
 					"type": "arrow"
 				}
 			],
-			"updated": 1694337877839,
+			"updated": 1695350309985,
 			"link": null,
 			"locked": false
 		},
 		{
-			"id": "4qrfhyP1",
 			"type": "text",
-			"x": -183.16665649414062,
-			"y": -239.61978149414062,
-			"width": 37.79296875,
-			"height": 23,
-			"angle": 0,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
+			"version": 34,
+			"versionNonce": 259014852,
+			"isDeleted": false,
+			"id": "4qrfhyP1",
 			"fillStyle": "hachure",
 			"strokeWidth": 1,
 			"strokeStyle": "solid",
 			"roughness": 1,
 			"opacity": 100,
+			"angle": 0,
+			"x": -183.16665649414062,
+			"y": -239.61978149414062,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"width": 37.79296875,
+			"height": 23,
+			"seed": 466524156,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
-			"seed": 466524156,
-			"version": 34,
-			"versionNonce": 259014852,
-			"isDeleted": false,
-			"boundElements": null,
+			"boundElements": [],
 			"updated": 1694337105707,
 			"link": null,
 			"locked": false,
-			"text": "a.txt",
-			"rawText": "a.txt",
 			"fontSize": 20,
 			"fontFamily": 2,
+			"text": "a.txt",
+			"rawText": "a.txt",
 			"textAlign": "left",
 			"verticalAlign": "top",
-			"baseline": 18,
 			"containerId": null,
 			"originalText": "a.txt",
-			"lineHeight": 1.15
+			"lineHeight": 1.15,
+			"baseline": 18
 		},
 		{
 			"type": "text",
@@ -155,14 +155,14 @@ block_1为72M
 		},
 		{
 			"type": "rectangle",
-			"version": 197,
-			"versionNonce": 653402108,
+			"version": 200,
+			"versionNonce": 2146558681,
 			"isDeleted": false,
 			"id": "MCTFpKEVUaRTxb69eLzrN",
-			"fillStyle": "hachure",
-			"strokeWidth": 1,
+			"fillStyle": "solid",
+			"strokeWidth": 0.5,
 			"strokeStyle": "solid",
-			"roughness": 1,
+			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
 			"x": -364.4167785644531,
@@ -171,7 +171,7 @@ block_1为72M
 			"backgroundColor": "#ffc9c9",
 			"width": 139.99996948242188,
 			"height": 42.666656494140625,
-			"seed": 1132976068,
+			"seed": 405597719,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
@@ -183,20 +183,20 @@ block_1为72M
 					"type": "arrow"
 				}
 			],
-			"updated": 1694337857152,
+			"updated": 1695350341129,
 			"link": null,
 			"locked": false
 		},
 		{
 			"type": "rectangle",
-			"version": 115,
-			"versionNonce": 2066698492,
+			"version": 118,
+			"versionNonce": 2005288313,
 			"isDeleted": false,
 			"id": "Vsc5ze8W24a_Me9tjBYme",
-			"fillStyle": "hachure",
-			"strokeWidth": 1,
+			"fillStyle": "solid",
+			"strokeWidth": 0.5,
 			"strokeStyle": "solid",
-			"roughness": 1,
+			"roughness": 0,
 			"opacity": 100,
 			"angle": 0,
 			"x": -121.41665649414062,
@@ -205,14 +205,14 @@ block_1为72M
 			"backgroundColor": "#ffec99",
 			"width": 71.33334350585938,
 			"height": 42.666656494140625,
-			"seed": 1959001084,
+			"seed": 859291801,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
 				"type": 3
 			},
 			"boundElements": [],
-			"updated": 1694337862463,
+			"updated": 1695350347776,
 			"link": null,
 			"locked": false
 		},
@@ -251,7 +251,7 @@ block_1为72M
 			"containerId": null,
 			"originalText": "block_0",
 			"lineHeight": 1.15,
-			"baseline": 13
+			"baseline": 14
 		},
 		{
 			"type": "text",
@@ -288,107 +288,107 @@ block_1为72M
 			"containerId": null,
 			"originalText": "block_1",
 			"lineHeight": 1.15,
-			"baseline": 13
+			"baseline": 14
 		},
 		{
-			"id": "UgaKbvzAZlmVdLAftMbGN",
 			"type": "arrow",
-			"x": -176.7500457763672,
-			"y": -162.23956298828125,
-			"width": 111.99993896484375,
-			"height": 71.33331298828125,
+			"version": 77,
+			"versionNonce": 1501403991,
+			"isDeleted": false,
+			"id": "UgaKbvzAZlmVdLAftMbGN",
+			"fillStyle": "hachure",
+			"strokeWidth": 0.5,
+			"strokeStyle": "dashed",
+			"roughness": 0,
+			"opacity": 100,
 			"angle": 0,
+			"x": -176.83645962927358,
+			"y": -161.83064052036832,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
-			"fillStyle": "hachure",
-			"strokeWidth": 1,
-			"strokeStyle": "dashed",
-			"roughness": 1,
-			"opacity": 100,
+			"width": 111.19414369631141,
+			"height": 70.38021850585938,
+			"seed": 1639136983,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
 				"type": 2
 			},
-			"seed": 53442500,
-			"version": 65,
-			"versionNonce": 1716041468,
-			"isDeleted": false,
-			"boundElements": null,
-			"updated": 1694337709671,
+			"boundElements": [],
+			"updated": 1695350325152,
 			"link": null,
 			"locked": false,
-			"points": [
-				[
-					0,
-					0
-				],
-				[
-					-111.99993896484375,
-					71.33331298828125
-				]
-			],
-			"lastCommittedPoint": null,
 			"startBinding": {
 				"elementId": "G4lpXVvhG4MOnwzN9ooaS",
-				"focus": -0.10543499050277902,
+				"focus": -0.10267032839599419,
 				"gap": 1
 			},
 			"endBinding": {
 				"elementId": "MCTFpKEVUaRTxb69eLzrN",
-				"focus": -0.3194549943862226,
-				"gap": 3.3332977294921875
+				"focus": -0.32249767072677304,
+				"gap": 3.8774697440011323
 			},
+			"lastCommittedPoint": null,
 			"startArrowhead": null,
-			"endArrowhead": "arrow"
-		},
-		{
-			"id": "KoHspNFK1xyIPZ8bh2dVf",
-			"type": "arrow",
-			"x": -175.4166717529297,
-			"y": -160.23956298828125,
-			"width": 94,
-			"height": 80.66668701171875,
-			"angle": 0,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
-			"fillStyle": "hachure",
-			"strokeWidth": 1,
-			"strokeStyle": "dashed",
-			"roughness": 1,
-			"opacity": 100,
-			"groupIds": [],
-			"frameId": null,
-			"roundness": {
-				"type": 2
-			},
-			"seed": 2123396988,
-			"version": 40,
-			"versionNonce": 982498500,
-			"isDeleted": false,
-			"boundElements": null,
-			"updated": 1694337713558,
-			"link": null,
-			"locked": false,
+			"endArrowhead": "triangle",
 			"points": [
 				[
 					0,
 					0
 				],
 				[
-					94,
-					80.66668701171875
+					-111.19414369631141,
+					70.38021850585938
 				]
-			],
-			"lastCommittedPoint": null,
+			]
+		},
+		{
+			"type": "arrow",
+			"version": 45,
+			"versionNonce": 1506649783,
+			"isDeleted": false,
+			"id": "KoHspNFK1xyIPZ8bh2dVf",
+			"fillStyle": "hachure",
+			"strokeWidth": 0.5,
+			"strokeStyle": "dashed",
+			"roughness": 0,
+			"opacity": 100,
+			"angle": 0,
+			"x": -174.4961764300437,
+			"y": -160.23956298828125,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"width": 93.07950467711402,
+			"height": 80.66668701171875,
+			"seed": 2008150423,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
+			"boundElements": [],
+			"updated": 1695350329921,
+			"link": null,
+			"locked": false,
 			"startBinding": {
 				"elementId": "G4lpXVvhG4MOnwzN9ooaS",
 				"focus": 0.40597472965604037,
 				"gap": 2.046905517578125
 			},
 			"endBinding": null,
+			"lastCommittedPoint": null,
 			"startArrowhead": null,
-			"endArrowhead": "arrow"
+			"endArrowhead": "triangle",
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					93.07950467711402,
+					80.66668701171875
+				]
+			]
 		},
 		{
 			"type": "text",
@@ -466,8 +466,8 @@ block_1为72M
 		},
 		{
 			"type": "text",
-			"version": 316,
-			"versionNonce": 718057212,
+			"version": 354,
+			"versionNonce": 2093667735,
 			"isDeleted": false,
 			"id": "EahKiBzV",
 			"fillStyle": "hachure",
@@ -476,35 +476,35 @@ block_1为72M
 			"roughness": 1,
 			"opacity": 100,
 			"angle": 0,
-			"x": 8.353591918945312,
-			"y": -198.10625,
+			"x": -0.8980008079892059,
+			"y": -222.05182407924107,
 			"strokeColor": "#1e1e1e",
 			"backgroundColor": "transparent",
-			"width": 302.28125,
+			"width": 316.5390625,
 			"height": 36.8,
 			"seed": 1524950340,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1694337850651,
+			"updated": 1695350377196,
 			"link": null,
 			"locked": false,
 			"fontSize": 16,
 			"fontFamily": 2,
-			"text": "文件a.txt，大小200M，块大小指定128M，\n切成两块存储在hdfs中",
-			"rawText": "文件a.txt，大小200M，块大小指定128M，\n切成两块存储在hdfs中",
+			"text": "文件a.txt，大小200M，块大小指定128M，\n切成两块存储在hdfs中（block_0，block_1）",
+			"rawText": "文件a.txt，大小200M，块大小指定128M，\n切成两块存储在hdfs中（block_0，block_1）",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "文件a.txt，大小200M，块大小指定128M，\n切成两块存储在hdfs中",
+			"originalText": "文件a.txt，大小200M，块大小指定128M，\n切成两块存储在hdfs中（block_0，block_1）",
 			"lineHeight": 1.15,
 			"baseline": 33
 		},
 		{
 			"type": "text",
-			"version": 677,
-			"versionNonce": 22514116,
+			"version": 736,
+			"versionNonce": 1406495991,
 			"isDeleted": false,
 			"id": "d1PNEXIq",
 			"fillStyle": "hachure",
@@ -513,9 +513,9 @@ block_1为72M
 			"roughness": 1,
 			"opacity": 100,
 			"angle": 0,
-			"x": 7.1093292236328125,
-			"y": -48.639562988281284,
-			"strokeColor": "#1e1e1e",
+			"x": 4.388323829287515,
+			"y": -98.16337251209086,
+			"strokeColor": "#e03131",
 			"backgroundColor": "transparent",
 			"width": 312.0703125,
 			"height": 92,
@@ -524,48 +524,53 @@ block_1为72M
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1694338011423,
+			"updated": 1695350420663,
 			"link": null,
 			"locked": false,
 			"fontSize": 16,
 			"fontFamily": 2,
-			"text": "如果mapreduce程序，指定切片大小100M，\n对分别对两个块进行逻辑切分\nblock_0切为100M和28M\nblock_1为72M\n相应会启动三个map task",
-			"rawText": "如果mapreduce程序，指定切片大小100M，\n对分别对两个块进行逻辑切分\nblock_0切为100M和28M\nblock_1为72M\n相应会启动三个map task",
+			"text": "如果mapreduce程序，指定切片大小100M，\n分别对两个块进行逻辑切分\nblock_0切为100M和28M\nblock_1为72M\n相应会启动三个map task",
+			"rawText": "如果mapreduce程序，指定切片大小100M，\n分别对两个块进行逻辑切分\nblock_0切为100M和28M\nblock_1为72M\n相应会启动三个map task",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "如果mapreduce程序，指定切片大小100M，\n对分别对两个块进行逻辑切分\nblock_0切为100M和28M\nblock_1为72M\n相应会启动三个map task",
+			"originalText": "如果mapreduce程序，指定切片大小100M，\n分别对两个块进行逻辑切分\nblock_0切为100M和28M\nblock_1为72M\n相应会启动三个map task",
 			"lineHeight": 1.15,
 			"baseline": 88
 		},
 		{
-			"id": "UZR8i81QCwrj4S_K6m5Tf",
 			"type": "line",
-			"x": -275.4166717529297,
-			"y": -86.90625,
-			"width": 0,
-			"height": 38,
-			"angle": 0,
-			"strokeColor": "#1971c2",
-			"backgroundColor": "#a5d8ff",
+			"version": 35,
+			"versionNonce": 523206012,
+			"isDeleted": false,
+			"id": "UZR8i81QCwrj4S_K6m5Tf",
 			"fillStyle": "solid",
 			"strokeWidth": 1,
 			"strokeStyle": "dashed",
 			"roughness": 1,
 			"opacity": 100,
+			"angle": 0,
+			"x": -275.4166717529297,
+			"y": -86.90625,
+			"strokeColor": "#1971c2",
+			"backgroundColor": "#a5d8ff",
+			"width": 0,
+			"height": 38,
+			"seed": 450360572,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
 				"type": 2
 			},
-			"seed": 450360572,
-			"version": 35,
-			"versionNonce": 523206012,
-			"isDeleted": false,
-			"boundElements": null,
+			"boundElements": [],
 			"updated": 1694338025798,
 			"link": null,
 			"locked": false,
+			"startBinding": null,
+			"endBinding": null,
+			"lastCommittedPoint": null,
+			"startArrowhead": null,
+			"endArrowhead": null,
 			"points": [
 				[
 					0,
@@ -575,12 +580,7 @@ block_1为72M
 					0,
 					38
 				]
-			],
-			"lastCommittedPoint": null,
-			"startBinding": null,
-			"endBinding": null,
-			"startArrowhead": null,
-			"endArrowhead": null
+			]
 		},
 		{
 			"type": "text",
@@ -660,22 +660,22 @@ block_1为72M
 	"appState": {
 		"theme": "light",
 		"viewBackgroundColor": "#ffffff",
-		"currentItemStrokeColor": "#2f9e44",
+		"currentItemStrokeColor": "#e03131",
 		"currentItemBackgroundColor": "#a5d8ff",
 		"currentItemFillStyle": "solid",
-		"currentItemStrokeWidth": 1,
+		"currentItemStrokeWidth": 0.5,
 		"currentItemStrokeStyle": "dashed",
-		"currentItemRoughness": 1,
+		"currentItemRoughness": 0,
 		"currentItemOpacity": 100,
 		"currentItemFontFamily": 2,
 		"currentItemFontSize": 16,
 		"currentItemTextAlign": "left",
 		"currentItemStartArrowhead": null,
-		"currentItemEndArrowhead": "arrow",
-		"scrollX": 661.9166717529297,
-		"scrollY": 531,
+		"currentItemEndArrowhead": "triangle",
+		"scrollX": 399.96545737130293,
+		"scrollY": 323.5888310023717,
 		"zoom": {
-			"value": 1
+			"value": 1.05
 		},
 		"currentItemRoundness": "round",
 		"gridSize": null,
