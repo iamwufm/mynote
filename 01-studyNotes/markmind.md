@@ -435,7 +435,7 @@ PDF 标注形式如下 ：xxxxxx[📌](obsidian://jump-to-pdf?pdf=xxxxxx.pdf&ann
 
 ### 思维导图
 
-1. 修复 #268 ，修复 rich 模式下 鱼骨图的问题
+1. 修复 # 268 ，修复 rich 模式下 鱼骨图的问题
     
 2. rich 模式 节点支持解析最新的obsidian 的 callout 语法
     
@@ -553,7 +553,7 @@ PDF 标注形式如下 ：xxxxxx[📌](obsidian://jump-to-pdf?pdf=xxxxxx.pdf&ann
 
 注意： v1.3.9 更新了PDF js 插件，详细查看 [https://github.com/MarkMindCkm/obsidian-markmind/releases/tag/1.3.9](https://github.com/MarkMindCkm/obsidian-markmind/releases/tag/1.3.9)
 
-1. 修复 #231，导出PDF 注释时可以添加一个 link 变量
+1. 修复 # 231，导出PDF 注释时可以添加一个 link 变量
     
 
 Page:{{page}}
@@ -608,7 +608,7 @@ annotate-image-target: test/test
 
 1. 在左下角添加放大缩小按钮
     
-2. 修复 #226，当导出pdf标注时可以添加一个`颜色`变量，在设置页面里可以修改为下面这种形式
+2. 修复 # 226，当导出pdf标注时可以添加一个`颜色`变量，在设置页面里可以修改为下面这种形式
     
 
 Page:{{page}}
@@ -624,13 +624,13 @@ Comment:{{comment}}
 
 1. 支持搜索思维导图 , 在更多菜单中有个 `打开/关闭搜索框`
     
-2. 修复 #203，支持复制pdf标注文字
+2. 修复 # 203，支持复制pdf标注文字
     
 3. 支持微调整标注的高度，解决标注偏下或偏上的问题，可以在设置页面添加向上或向下调整的距离，比如 2 (px)
     
 4. 增加一个快捷键 `alt + i` 用于 切换创建矩形标注的状态
     
-5. 修复 #131，支持在 yaml 中单独为 pdf 设置保存矩形标注所产生的图片的文件夹路径( 指向你库中的某个文件夹，是个相对路径) ，默认是设置页面中的路径，如果在yaml中添加该路径，则该路径的优先级更高，该功能允许你为每个 pdf 单独设置图片路径，方便导出 , 需要更新 电脑版 [pdfjs 插件](https://github.com/MarkMindCkm/obsidian-markmind/releases/download/1.3.8/pdfjs.zip)
+5. 修复 # 131，支持在 yaml 中单独为 pdf 设置保存矩形标注所产生的图片的文件夹路径( 指向你库中的某个文件夹，是个相对路径) ，默认是设置页面中的路径，如果在yaml中添加该路径，则该路径的优先级更高，该功能允许你为每个 pdf 单独设置图片路径，方便导出 , 需要更新 电脑版 [pdfjs 插件](https://github.com/MarkMindCkm/obsidian-markmind/releases/download/1.3.8/pdfjs.zip)
     
 
 ---
@@ -1158,9 +1158,9 @@ annotate-target: test.epub annotate-type: epub
 
 ### v1.1.3
 
-修复 #54 修复 #28
+修复 # 54 修复 # 28
 
-修复#46 添加更多菜单项 居中思维导图
+修复# 46 添加更多菜单项 居中思维导图
 
 ### v1.1.1
 
@@ -1198,7 +1198,7 @@ iPad screen short ( iPad 截图 ) ![68747470733a2f2f692e6c6f6c692e6e65742f323032
 
 下载解压pdfjs 之后，您需要在设置页面设置PDF插件路径，这是一个绝对路径，比如在电脑端：`D:plugins/pdfjs`, 在手机上，您需要将pdfjs插件放在一个Obsidian app可访问的位置 , 比如安卓手机上，你可以在文件夹中新建一个plugin文件夹，然后将pdfjs 插件放入其中，设置路径为`/storage/emulated/0/Documents/obsidian/obsidian/plugin/pdfjs`
 
-1. 修复 #40 ，你可以在设置页面选择创建思维导图时的模式 ， 默认是`basic`模式
+1. 修复 # 40 ，你可以在设置页面选择创建思维导图时的模式 ， 默认是`basic`模式
     
 2. pdf 标注支持移动端，只支持库内pdf文件
     
@@ -1226,13 +1226,13 @@ mindmap-theme: dark(or light or card)
 
 ### 这是一个大版本更新
 
-1. 修复 #4， pdf 标注支持使用`file://` 协议，目前只能在桌面版本中使用`file://`协议，并且这种方式标注会被保存在该markdown 文件中（即使您选择`annos`方式）,使用方式如下：
+1. 修复 # 4， pdf 标注支持使用`file://` 协议，目前只能在桌面版本中使用`file://`协议，并且这种方式标注会被保存在该markdown 文件中（即使您选择`annos`方式）,使用方式如下：
     
 
 annotate-target: file://pdf absolute path
 annotate-type: pdf
 
-2. fix #29 , 从这个版本开始支持移动端，并且和桌面端拥有一致的体验
+2. fix # 29 , 从这个版本开始支持移动端，并且和桌面端拥有一致的体验
     
 3. 添加一些命令
     
@@ -1261,7 +1261,7 @@ annotate-type: pdf
 
 ### v1.0.8
 
-修复 #26， 修复tab键引起的问题 修复在大纲模式下，使用ctrl + down/up 导致markdown格式丢失的问题
+修复 # 26， 修复tab键引起的问题 修复在大纲模式下，使用ctrl + down/up 导致markdown格式丢失的问题
 
 ### v1.0.7
 
@@ -1767,9 +1767,9 @@ PDF 标注形式如下 ：xxxxxx[📌](obsidian://jump-to-pdf?pdf=xxxxxx.pdf&ann
 
 本次版本是支持 obsidian 弹出窗口的一个过渡版本，一些功能在独立的弹出窗口还无法使用，但是大部分功能已经可以正常使用了
 
-- 修复 #412
+- 修复 # 412
     
-- 修复 #400
+- 修复 # 400
     
 
 #### 微信群-由群主拉入
@@ -1818,7 +1818,7 @@ PDF 标注形式如下 ：xxxxxx[📌](obsidian://jump-to-pdf?pdf=xxxxxx.pdf&ann
 
 ### 思维导图
 
-1. 修复 #268 ，修复 rich 模式下 鱼骨图的问题
+1. 修复 # 268 ，修复 rich 模式下 鱼骨图的问题
     
 2. rich 模式 节点支持解析最新的obsidian 的 callout 语法
     
@@ -1936,7 +1936,7 @@ PDF 标注形式如下 ：xxxxxx[📌](obsidian://jump-to-pdf?pdf=xxxxxx.pdf&ann
 
 注意： v1.3.9 更新了PDF js 插件，详细查看 [https://github.com/MarkMindCkm/obsidian-markmind/releases/tag/1.3.9](https://github.com/MarkMindCkm/obsidian-markmind/releases/tag/1.3.9)
 
-1. 修复 #231，导出PDF 注释时可以添加一个 link 变量
+1. 修复 # 231，导出PDF 注释时可以添加一个 link 变量
     
 
 Page:{{page}}
@@ -1991,7 +1991,7 @@ annotate-image-target: test/test
 
 1. 在左下角添加放大缩小按钮
     
-2. 修复 #226，当导出pdf标注时可以添加一个`颜色`变量，在设置页面里可以修改为下面这种形式
+2. 修复 # 226，当导出pdf标注时可以添加一个`颜色`变量，在设置页面里可以修改为下面这种形式
     
 
 Page:{{page}}
@@ -2007,13 +2007,13 @@ Comment:{{comment}}
 
 1. 支持搜索思维导图 , 在更多菜单中有个 `打开/关闭搜索框`
     
-2. 修复 #203，支持复制pdf标注文字
+2. 修复 # 203，支持复制pdf标注文字
     
 3. 支持微调整标注的高度，解决标注偏下或偏上的问题，可以在设置页面添加向上或向下调整的距离，比如 2 (px)
     
 4. 增加一个快捷键 `alt + i` 用于 切换创建矩形标注的状态
     
-5. 修复 #131，支持在 yaml 中单独为 pdf 设置保存矩形标注所产生的图片的文件夹路径( 指向你库中的某个文件夹，是个相对路径) ，默认是设置页面中的路径，如果在yaml中添加该路径，则该路径的优先级更高，该功能允许你为每个 pdf 单独设置图片路径，方便导出 , 需要更新 电脑版 [pdfjs 插件](https://github.com/MarkMindCkm/obsidian-markmind/releases/download/1.3.8/pdfjs.zip)
+5. 修复 # 131，支持在 yaml 中单独为 pdf 设置保存矩形标注所产生的图片的文件夹路径( 指向你库中的某个文件夹，是个相对路径) ，默认是设置页面中的路径，如果在yaml中添加该路径，则该路径的优先级更高，该功能允许你为每个 pdf 单独设置图片路径，方便导出 , 需要更新 电脑版 [pdfjs 插件](https://github.com/MarkMindCkm/obsidian-markmind/releases/download/1.3.8/pdfjs.zip)
     
 
 ---
@@ -2541,9 +2541,9 @@ annotate-target: test.epub annotate-type: epub
 
 ### v1.1.3
 
-修复 #54 修复 #28
+修复 # 54 修复 # 28
 
-修复#46 添加更多菜单项 居中思维导图
+修复# 46 添加更多菜单项 居中思维导图
 
 ### v1.1.1
 
@@ -2581,7 +2581,7 @@ iPad screen short ( iPad 截图 ) ![68747470733a2f2f692e6c6f6c692e6e65742f323032
 
 下载解压pdfjs 之后，您需要在设置页面设置PDF插件路径，这是一个绝对路径，比如在电脑端：`D:plugins/pdfjs`, 在手机上，您需要将pdfjs插件放在一个Obsidian app可访问的位置 , 比如安卓手机上，你可以在文件夹中新建一个plugin文件夹，然后将pdfjs 插件放入其中，设置路径为`/storage/emulated/0/Documents/obsidian/obsidian/plugin/pdfjs`
 
-1. 修复 #40 ，你可以在设置页面选择创建思维导图时的模式 ， 默认是`basic`模式
+1. 修复 # 40 ，你可以在设置页面选择创建思维导图时的模式 ， 默认是`basic`模式
     
 2. pdf 标注支持移动端，只支持库内pdf文件
     
@@ -2609,13 +2609,13 @@ mindmap-theme: dark(or light or card)
 
 ### 这是一个大版本更新
 
-1. 修复 #4， pdf 标注支持使用`file://` 协议，目前只能在桌面版本中使用`file://`协议，并且这种方式标注会被保存在该markdown 文件中（即使您选择`annos`方式）,使用方式如下：
+1. 修复 # 4， pdf 标注支持使用`file://` 协议，目前只能在桌面版本中使用`file://`协议，并且这种方式标注会被保存在该markdown 文件中（即使您选择`annos`方式）,使用方式如下：
     
 
 annotate-target: file://pdf absolute path
 annotate-type: pdf
 
-2. fix #29 , 从这个版本开始支持移动端，并且和桌面端拥有一致的体验
+2. fix # 29 , 从这个版本开始支持移动端，并且和桌面端拥有一致的体验
     
 3. 添加一些命令
     
@@ -2644,7 +2644,7 @@ annotate-type: pdf
 
 ### v1.0.8
 
-修复 #26， 修复tab键引起的问题 修复在大纲模式下，使用ctrl + down/up 导致markdown格式丢失的问题
+修复 # 26， 修复tab键引起的问题 修复在大纲模式下，使用ctrl + down/up 导致markdown格式丢失的问题
 
 ### v1.0.7
 
