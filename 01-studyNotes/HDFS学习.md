@@ -73,8 +73,8 @@ HDFS的文件在物理上是分块存储，块大小可以通过配置参数来�
 
 ==客户端在哪里运行，没有约束，只要运行客户端的机器能够跟hdfs集群联网==
 
-文件的切块大小和存储的副本数量，都是由客户端决定！所谓的由客户端决定，是通过配置参数来定的。参考[[Hadoop3.x集群安装#3.2.2 修改配置文件|配置文件]]如，读取hdfs-default.xml的块大小（dfs.blocksize）和副本数（dfs.replication）配置
-### 2.1 HDFS的命令行客户端操作（shell）（重点）
+文件的切块大小和存储的副本数量，都是由客户端决定！所谓的由客户端决定，是通过配置参数来定的。参考[[Hadoop3.x集群安装#3.2.1 hdfs集群配置文件]]如，读取hdfs-default.xml的块大小（dfs.blocksize）和副本数（dfs.replication）配置
+### 2.1 HDFS客户端命令行操作（shell）（重点）
 
 基本语法：`hadoop fs 具体命令` 或者 `hdfs dfs 具体命令`
 
@@ -130,7 +130,7 @@ hadoop fs -mv /weiguo.txt /sanguo/weiguo2.txt
 # 递归删除目录及目录的内容
 hadoop fs -rm -r /sanguo
 ```
-### 2.2 HDFS的java客户端操作（API）
+### 2.2 HDFS客户端API操作（java）
 
 在window上安装hadoop客户端。具体操作参见[[window安装hadoop]]
 

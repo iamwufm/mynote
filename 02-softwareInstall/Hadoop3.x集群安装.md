@@ -154,210 +154,22 @@ source /etc/profile
 # 7.验证java是否安装成功
 java -version
 ```
-## 三、安装hadoop集群
 
-==没特殊说明，以下操作均在hadoop101机器上的hadoop用户下执行。==
-### 3.1 安装其他两台虚拟机
+#### 2.2.7 安装其他两台虚拟机
 
 采用完整克隆方法安装，具体操作参考：[[VM与CentOS安装#四、克隆机器]]
 
 主机名和ip地址参考[[Hadoop3.x集群安装#一、集群的组成]]
-### 3.2 安装Hadoop和修改配置文件
 
-Hadoop包下载地址：[Apache Hadoop官网](https://hadoop.apache.org/releases.html)
-
-阿里云镜像下载：[阿里云镜像](https://mirrors.aliyun.com/apache/hadoop/core/)
-#### 3.2.1 安装Hadoop
-
-```shell
-# 1.把安装包放在/opt/software/目录下
-cd /opt/software/
-rz
-
-# 2.解压hadoop到/opt/module 目录下
-tar -zxvf hadoop-3.3.6.tar.gz -C /opt/module/
-
-# 3.配置Hadoop环境变量
-sudo vim /etc/profile.d/my_env.sh
-
-# 添加如下内容
-#HADOOP_HOME
-export HADOOP_HOME=/opt/module/hadoop-3.3.6
-export PATH=$PATH:$HADOOP_HOME/bin
-export PATH=$PATH:$HADOOP_HOME/sbin
-
-# 4.让环境变量生效
-source /etc/profile
-
-# 5.验证java是否安装成功（如果不显示版本号，可重启虚拟机sudo reboot）
-hadoop version
-```
-
-```text
-Hadoop重要目录：
-bin：存放对Hadoop相关服务（hdfs、yarn、mapred）进行操作的脚本
-sbin：存放启动或停止Hadoop相关服务的脚本
-etc：Hadoop的配置文件目录，存放Hadoop的配置文件
-lib：存放Hadoop的本地库（对数据进行压缩解压功能）
-share：存放Hadoop的依赖jar包、文档和官方案例
-```
-#### 3.2.2 修改配置文件
-
-Hadoop配置文件分两类：默认配置文件和自定义配置文件，**只有用户想修改某一默认配置值时，才需要修改自定义配置文件，更改相应属性值**。
-
-| 自定义文件      | 默认文件           | 重要配置说明                                                                                           |
-| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
-| core-site.xml   | core-default.xml   | 指定hadoop的默认文件系统|
-| hdfs-site.xml   | hdfs-default.xml   |    HDFS配置                                                                                                    |
-| yarn-site.xml   | yarn-default.xml   |    Yarn配置                                                                                                    |
-| mapred-site.xml | mapred-default.xml |      MapReduce配置                                                                                                  |
-
-```shell
-# 进入自定义配置文件目录
-cd /opt/module/hadoop-3.3.6/etc/hadoop
-```
-
-1. 修改core-site.xml
-
-```shell
-vim core-site.xml
-```
-
-```xml
-<!--在<configuration>标签里新增如下内容-->
-
-<!-- 1.指定hadoop的默认文件系统为：hdfs -->
-<property>
-<name>fs.defaultFS</name>
-<value>hdfs://hadoop101:8020</value>
-</property>
-
-<!-- 指定 hadoop 数据的存储目录 -->
-<property>
-<name>hadoop.tmp.dir</name>
-<value>/opt/data/hadoop-3.3.6</value>
-</property>
-
-<!-- 配置 HDFS 网页登录使用的静态用户为 hadoop -->
-<property>
-<name>hadoop.http.staticuser.user</name>
-<value>hadoop</value>
-</property>
-```
-
-2. 修改hdfs-site.xml
-
-```shell
-vim hdfs-site.xml
-```
-
-```xml
-<!--在<configuration>标签里新增如下内容-->
-
-<!-- NameNode web 端访问地址-->
-<property>
-<name>dfs.namenode.http-address</name>
-<value>hadoop101:9870</value>
-</property>
-
-<!-- SecondaryNameNode web 端访问地址-->
-<property>
-<name>dfs.namenode.secondary.http-address</name>
-<value>hadoop103:9868</value>
-</property>
-```
-
-3. 修改yarn-site.xml
-
-```shell
-vim yarn-site.xml
-```
-
-```xml
-<!--在<configuration>标签里新增如下内容-->
-
-<!-- 指定 MR 走 shuffle -->
-<property>
-<name>yarn.nodemanager.aux-services</name>
-<value>mapreduce_shuffle</value>
-</property>
-
-<!-- 指定 ResourceManager 的地址-->
-<property>
-<name>yarn.resourcemanager.hostname</name>
-<value>hadoop102</value>
-</property>
-
-<!-- 环境变量的继承 -->
-<property>
-<name>yarn.nodemanager.env-whitelist</name>
-<value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
-</property>
-
-<!-- 日志聚集功能好处：可以方便的查看到程序运行详情，方便开发调试。-->
-<!-- 开启日志聚集功能 -->
-<property>
-<name>yarn.log-aggregation-enable</name>
-<value>true</value>
-</property>
-<!-- 设置日志聚集服务器地址 -->
-<property>
-<name>yarn.log.server.url</name>
-<value>http://hadoop101:19888/jobhistory/logs</value>
-</property>
-<!-- 设置日志保留时间为 7 天-->
-<property>
-<name>yarn.log-aggregation.retain-seconds</name>
-<value>604800</value>
-</property>
-```
-
-4. 修改mapred-site.xml
-
-```shell
-vim mapred-site.xml
-```
-
-```xml
-<!--在<configuration>标签里新增如下内容-->
-
-<!-- 指定 MapReduce 程序运行在 Yarn 上 -->
-<property>
-<name>mapreduce.framework.name</name>
-<value>yarn</value>
-</property>
-
-<!--为了查看程序job的历史运行情况，需要配置一下历史服务器-->
-<!-- 历史服务器端地址 -->
-<property>
-<name>mapreduce.jobhistory.address</name>
-<value>hadoop101:10020</value>
-</property>
-<!-- 历史服务器 web 端地址 -->
-<property>
-<name>mapreduce.jobhistory.webapp.address</name>
-<value>hadoop101:19888</value>
-</property>
-```
-
-5. 修改workers文件
-
-```shell
-vim workers
-
-# 添加如下内容（datanode的列表，使用start-dfs.sh等命令会遍历此文件）
-hadoop101
-hadoop102
-hadoop103
-```
-### 3.3 SSH无密码登陆配置
+#### 2.2.8 SSH无密码登陆配置
 
 免密登陆原理：
 
 ![[Drawing 2023-08-29 10.09.09.excalidraw]]
+一键启动脚本需要：在hadoop101一键启动hdfs集群，需要hadoop101能免密登陆到hadoop101、hadoop102和hadoop103；在hadoop102一键启动yarn集群，需要hadoop102能免密登陆到hadoop101、hadoop102和hadoop103。
 
 ```shell
-# 先后在hadoop101、hadoop102和hadoop103执行以下操作
+# 先后在hadoop101、hadoop102执行以下操作
 
 # 在hadoop101上生成公钥和私钥
 # 1. 输入后敲（三个回车），就会生成两个文件 id_rsa（私钥）、id_rsa.pub（公钥）
@@ -379,9 +191,9 @@ ll
 | id_rsa          | 生成的私钥                              |
 | id_rsa.pub      | 生成的公钥                              |
 | authorized_keys | 存放授权过的无密登陆服务器公钥                                        |
-### 3.4 集群时间同步
+#### 2.2.9 集群时间同步
 
-如果服务器在公网环境（能连接外网），可以不采用集群时间同步，因为服务器会定期和公网时间及逆行校准；**如果服务器在内网环境，必须要配置集群时间同步**，否则时间久了，会产生时间偏差，导致集群执行任务不同步。
+如果服务器在公网环境（能连接外网），可以不采用集群时间同步，因为服务器会定期和公网时间及逆行校准；**如果服务器在内网环境，必须要配置集群时间同步**，==否则时间久了，会产生时间偏差，导致集群执行任务不同步==。
 
 解决方法之一：==找一台机器，作为时间服务器，所有的机器与这台机器的时间进行定时的同步。==
 
@@ -444,47 +256,232 @@ sudo date -s "2021-9-11 11:11:11"
 # 一分钟后查看时间
 sudo date
 ```
-### 3.5 分发脚本
+## 三、安装hadoop集群
+
+==没特殊说明，以下操作均在hadoop101机器上的hadoop用户下执行。==
+### 3.1 安装Hadoop
+
+Hadoop包下载地址：[Apache Hadoop官网](https://hadoop.apache.org/releases.html)
+
+阿里云镜像下载：[阿里云镜像](https://mirrors.aliyun.com/apache/hadoop/core/)
+
+```shell
+# 1.把安装包放在/opt/software/目录下
+cd /opt/software/
+rz
+
+# 2.解压hadoop到/opt/module 目录下
+tar -zxvf hadoop-3.3.6.tar.gz -C /opt/module/
+
+# 3.配置Hadoop环境变量
+sudo vim /etc/profile.d/my_env.sh
+
+# 添加如下内容
+#HADOOP_HOME
+export HADOOP_HOME=/opt/module/hadoop-3.3.6
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+
+# 4.让环境变量生效
+source /etc/profile
+
+# 5.验证java是否安装成功（如果不显示版本号，可重启虚拟机sudo reboot）
+hadoop version
+```
+
+```text
+Hadoop重要目录：
+bin：存放对Hadoop相关服务（hdfs、yarn、mapred）进行操作的脚本
+sbin：存放启动或停止Hadoop相关服务的脚本
+etc：Hadoop的配置文件目录，存放Hadoop的配置文件
+lib：存放Hadoop的本地库（对数据进行压缩解压功能）
+share：存放Hadoop的依赖jar包、文档和官方案例
+```
+### 3.2 修改hadoop配置文件
+
+Hadoop配置文件分两类：默认配置文件和自定义配置文件，**只有用户想修改某一默认配置值时，才需要修改自定义配置文件，更改相应属性值**。
+
+| 自定义文件      | 默认文件           | 重要配置说明                                                                                           |
+| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
+| core-site.xml   | core-default.xml   | 指定hadoop的默认文件系统|
+| hdfs-site.xml   | hdfs-default.xml   |    HDFS配置                                                                                                    |
+| yarn-site.xml   | yarn-default.xml   |    Yarn配置                                                                                                    |
+| mapred-site.xml | mapred-default.xml |      MapReduce配置                                                                                                  |
+
+```shell
+# 进入自定义配置文件目录
+cd /opt/module/hadoop-3.3.6/etc/hadoop
+```
+#### 3.2.1 hdfs集群配置文件
+
+```shell
+# 1.修改core-site.xml，添加如下内容
+vim core-site.xml
+```
+
+```xml
+<!--在<configuration>标签里新增如下内容-->
+
+<!-- 1.指定hadoop的默认文件系统为：hdfs -->
+<property>
+	<name>fs.defaultFS</name>
+	<value>hdfs://hadoop101:8020</value>
+</property>
+
+<!-- 指定hadoop数据的存储目录 -->
+<property>
+	<name>hadoop.tmp.dir</name>
+	<value>/opt/data/hadoop-3.3.6</value>
+</property>
+
+<!-- 配置HDFS网页登录使用的静态用户为hadoop-->
+<property>
+	<name>hadoop.http.staticuser.user</name>
+	<value>hadoop</value>
+</property>
+```
+
+```shell
+# 2.修改hdfs-site.xml，添加如下内容
+vim hdfs-site.xml
+```
+
+```xml
+<!--在<configuration>标签里新增如下内容-->
+
+<!-- NameNode web 端访问地址-->
+<property>
+	<name>dfs.namenode.http-address</name>
+	<value>hadoop101:9870</value>
+</property>
+
+<!-- SecondaryNameNode web 端访问地址-->
+<property>
+	<name>dfs.namenode.secondary.http-address</name>
+	<value>hadoop103:9868</value>
+</property>
+```
+
+```shell
+# 修改workers文件
+vim workers
+
+# 添加如下内容（datanode的列表，使用start-dfs.sh等命令会遍历此文件）
+hadoop101
+hadoop102
+hadoop103
+```
+#### 3.2.2 yarn集群配置文件
+
+```shell
+# 修改yarn-site.xml，添加如下内容
+vim yarn-site.xml
+```
+
+```xml
+<!--在<configuration>标签里新增如下内容-->
+
+<!-- 指定 MR 走 shuffle -->
+<property>
+	<name>yarn.nodemanager.aux-services</name>
+	<value>mapreduce_shuffle</value>
+</property>
+
+<!-- 指定 ResourceManager 的地址-->
+<property>
+	<name>yarn.resourcemanager.hostname</name>
+	<value>hadoop102</value>
+</property>
+
+<!-- 环境变量的继承 -->
+<property>
+	<name>yarn.nodemanager.env-whitelist</name>
+	<value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+</property>
+
+<!-- 日志聚集功能好处：可以方便的查看到程序运行详情，方便开发调试。-->
+<!-- 开启日志聚集功能 -->
+<property>
+	<name>yarn.log-aggregation-enable</name>
+	<value>true</value>
+</property>
+<!-- 设置日志聚集服务器地址 -->
+<property>
+	<name>yarn.log.server.url</name>
+	<value>http://hadoop101:19888/jobhistory/logs</value>
+</property>
+<!-- 设置日志保留时间为 7 天-->
+<property>
+	<name>yarn.log-aggregation.retain-seconds</name>
+	<value>604800</value>
+</property>
+```
+
+```shell
+# 修改workers文件（如果跟datanode列表不一样，分发后去resouceManager的机器修改）
+vim workers
+
+# 添加如下内容（nodeManager的列表(一般跟datanode的列表一样)，使用start-yarn.sh等命令会遍历此文件）
+hadoop101
+hadoop102
+hadoop103
+```
+#### 3.2.3 mapreduce程序配置文件
+
+```shell
+# 修改mapred-site.xml，添加如下内容
+vim mapred-site.xml
+```
+
+```xml
+<!--在<configuration>标签里新增如下内容-->
+
+<!-- 指定 MapReduce 程序运行在 Yarn 上 -->
+<property>
+	<name>mapreduce.framework.name</name>
+	<value>yarn</value>
+</property>
+
+<!--为了查看程序job的历史运行情况，需要配置一下历史服务器-->
+<!-- 历史服务器端地址 -->
+<property>
+	<name>mapreduce.jobhistory.address</name>
+	<value>hadoop101:10020</value>
+</property>
+<!-- 历史服务器 web 端地址 -->
+<property>
+	<name>mapreduce.jobhistory.webapp.address</name>
+	<value>hadoop101:19888</value>
+</property>
+```
+### 3.3 分发脚本
 
 可以实现服务器与服务器之间的数据拷贝命令：
 
 **rsync 和 scp 区别：用 rsync 做文件的复制要比 scp 的速度快，rsync 只对差异文件做更新。scp 是把所有文件都复制过去。**
 
-完全拷贝：
-
 `scp -r $pdir/$fname $user@$host:$pdir/$fname`
-
-参数说明：
-- -r ：递归
 
 `rsync -av $pdir/$fname $user@$host:$pdir/$fname`
 
-参数说明：
-- -a：归档拷贝
-- -v：显示复制过程
-
 ```shell
-# 测试scp和rsync
+cd /opt/module
+# 在hadoop101上把内容复制给hadoop102和hadoop103
 
-# 在hadoop101上执行
+# 1.同步hadoop
+# 也可以写成scp -r /opt/module/hadoop-3.3.6  hadoop03:/opt/module
+scp -r hadoop-3.3.6 hadoop102:$PWD
+scp -r hadoop-3.3.6 hadoop103:$PWD
 
-# 1.编写测试脚本
-mkdir /home/hadoop/test
-cd /home/hadoop/test
+# 2.同步环境变量配置
+sudo scp -r /etc/profile.d/my_env.sh hadoop102:/etc/profile.d
+sudo scp -r /etc/profile.d/my_env.sh hadoop103:/etc/profile.d
 
-vim test1.txt
-
-# 添加如下内容
-hello world
-hello linux
-hello python
-
-# 2.测试scp（也可以写成scp -r ./test  hadoop03:/home/hadoop）
-scp -r ../test  hadoop102:$PWD
-
-# 测试rsync
-rsync -av ../test  hadoop103:$PWD
+# 在hadoop102和hadoop103执行以下语句， 环境变量生效
+source /etc/profile
 ```
+
+也可以编写集群分发脚本：
 
 ```shell
 # 在hadoop101上编写集群分发脚本
@@ -539,24 +536,11 @@ chmod +x xsync
 
 # 2.测试脚本是否可用
 xsync /home/hadoop/bin
-
-# 将脚本复制到/bin 中，以便全局调用
-sudo cp xsync /bin/
 ```
 
-```shell
-# 同步环境变量配置
-xsync /etc/profile.d/my_env.sh
+### 3.4 初始化namenode的元数据目录
 
-# 同步/opt/module/目录
-xsync /opt/module/
-
-# 在hadoop102和hadoop103执行以下语句， 环境变量生效
-source /etc/profile
-```
-### 3.6 初始化namenode的元数据目录
-
-只需要执行一次，生成一个全新的元数据存储目录（具体路径：/opt/data/hadoop-3.3.6/dfs/name/current）
+==只需要执行一次==，生成一个全新的元数据存储目录（具体路径：/opt/data/hadoop-3.3.6/dfs/name/current）
 ，生成记录元数据的存储目录fsimage和生成集群的相关标识，如==**集群id-clusterID**==
 
 ```shell
@@ -565,16 +549,20 @@ hadoop namenode -format
 ```
 ## 四、启动集群
 
-日志可以在以下路径查看
+日志可以在以下路径查看：
 
 ```shell
 /opt/module/hadoop-3.3.6/logs
 ```
-### 4.1 逐个启动
+
+可通过jps查看是否已经启动服务
+### 4.1 启动hdfs集群
 
 要先启动namenode，再启动datanode。
 
 首次启动datanode会生成==**clusterID**==（/opt/data/hadoop-3.3.6/dfs/data），后面会根据这个id跟namenode通讯。
+
+逐个启动：
 
 ```shell
 # 启动或停止Hdfs
@@ -585,8 +573,27 @@ hdfs --daemon start namenode
 hdfs --daemon start datanode
 # 3.启动secondarynamenode（在hadoop103）
 hdfs --daemon start seconarynamenode
+
 # 关闭，把启动命令的start改为stop
 ```
+
+一键启动：
+
+```shell
+# 一键启动hdfs（在hadoop101执行。会根据workers文件依次启动datanodes）
+start-dfs.sh
+
+# 关闭，把启动命令的start改为stop
+```
+
+web端查看：
+
+```txt
+http://hadoop101:9870
+```
+### 4.2 启动yarn集群
+
+逐个启动：
 
 ```shell
 # 启动或停止yarn
@@ -599,29 +606,37 @@ yarn --daemon start nodemanager
 # 关闭，把启动命令的start改为stop
 ```
 
-```shell
-# 在 hadoop101 启动历史服务器
-mapred --daemon start historyserver
-
-# 关闭，把启动命令的start改为stop
-```
-### 4.2 一键启动
-
-根据workers文件，启动datanodes
+一键启动：
 
 ```shell
-# 一键启动hdfs（在hadoop101）
-start-dfs.sh
-
-# 一键启动yarn（在hadoop102）
+# 一键启动yarn（在hadoop102执行。会根据workers文件依次启动nodeManagers）
 start-yarn.sh
 
-# 在 hadoop101 启动历史服务器
+# 关闭，把启动命令的start改为stop
+```
+
+web端查看：
+
+```txt
+http://hadoop102:8088
+```
+### 4.3 启动历史服务器
+
+主要是通过yarn的网页查看某个job的日志（Tracking URL：History）。
+
+```shell
+# 在 hadoop101 启动历史服务器 mapred --daemon stop historyserver
 mapred --daemon start historyserver
 
 # 关闭，把启动命令的start改为stop
 ```
-### 4.3 网页访问
+
+web端查看：
+
+```txt
+http://hadoop101:19888
+```
+### 4.4 网页访问
 
 ```shell
 # web端查看HDFS的NameNodo（查看HDFS上存储的数据信息）
@@ -663,7 +678,7 @@ hadoop02:端口号（http://hadoop02:9870，旧版本是http://hadoop02:50070）
 ==查看历史任务：==
 
 ![[Pasted image 20230921174809.png|450]]
-### 4.4 测试集群
+## 五、测试集群
 
 （1）上传文件。可通过页面查看[[#^41540d]]
 
@@ -707,7 +722,9 @@ hadoop fs -get /jdk-8u144-linux-x64.tar.gz /home/hadoop
 ```shell
 hadoop jar /opt/module/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /input /output
 ```
-### 4.5 编写集群常用脚本
+## 六、编写集群常用脚本
+
+在hadoop101上：
 
 ```shell
 cd /home/hadoop/bin
@@ -759,9 +776,6 @@ esac
 ```shell
 # 赋予脚本执行权限
 chmod +x myhadoop.sh
-
-# 将脚本复制到/bin 中，以便全局调用
-sudo cp myhadoop.sh /bin/
 ```
 
 （2）查看三台服务器 Java 进程脚本
@@ -785,13 +799,9 @@ done
 ```shell
 # 赋予脚本执行权限
 chmod +x jpsall
-
-# 将脚本复制到/bin 中，以便全局调用
-sudo cp jpsall /bin/
 ```
 
 ```shell
 # 把脚本同步到其他机器
 xsync /home/hadoop/bin
-xsync /bin/xsync /bin/myhadoop.sh /bin/jpsall
 ```
