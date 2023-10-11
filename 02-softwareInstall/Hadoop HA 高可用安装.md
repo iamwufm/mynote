@@ -89,10 +89,10 @@ rm -rf ha
 sudo vim /etc/profile.d/my_env.sh
 
 # 添加如下内容，如果有HADOOP_HOME，记得注释掉
-#HA_HADOOP_HOME
-export HA_HADOOP_HOME=/opt/module/ha-hadoop-3.3.6
-export PATH=$PATH:$HA_HADOOP_HOME/bin
-export PATH=$PATH:$HA_HADOOP_HOME/sbin
+#HADOOP_HOME
+export HADOOP_HOME=/opt/module/ha-hadoop-3.3.6
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
 
 # 4.让环境变量生效
 source /etc/profile
@@ -458,25 +458,25 @@ sudo vim /etc/profile.d/my_env.sh
 export JAVA_HOME=/opt/module/jdk1.8.0_144
 export PATH=$PATH:$JAVA_HOME/bin
 
-#HA_HADOOP_HOME
-export HA_HADOOP_HOME=/opt/module/ha-hadoop-3.3.6
-export PATH=$PATH:$HA_HADOOP_HOME/bin
-export PATH=$PATH:$HA_HADOOP_HOME/sbin
+#HADOOP_HOME
+export HADOOP_HOME=/opt/module/ha-hadoop-3.3.6
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
 
 # 确保hadoop103-105的内容如下：
 #JAVA_HOME
 export JAVA_HOME=/opt/module/jdk1.8.0_144
 export PATH=$PATH:$JAVA_HOME/bin
 
-#HA_HADOOP_HOME
-export HA_HADOOP_HOME=/opt/module/ha-hadoop-3.3.6
-export PATH=$PATH:$HA_HADOOP_HOME/bin
-export PATH=$PATH:$HA_HADOOP_HOME/sbin
+#HADOOP_HOME
+export HADOOP_HOME=/opt/module/ha-hadoop-3.3.6
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
 
 # 添加如下内容
-#HA_ZOOKEEPER_HOME
-export HA_ZOOKEEPER_HOME=/opt/module/ha-zookeeper-3.8.2
-export PATH=$PATH:$HA_ZOOKEEPER_HOME/bin
+#ZOOKEEPER_HOME
+export ZOOKEEPER_HOME=/opt/module/ha-zookeeper-3.8.2
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
 ```
 
 ```shell

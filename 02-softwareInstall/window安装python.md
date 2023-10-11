@@ -41,3 +41,38 @@ pip install pandas -i https://pypi.tuna.tsinghua.edu.cn/simple/
 清华大学：https://pypi.tuna.tsinghua.edu.cn/simple
 中科大：https://pypi.mirrors.ustc.edu.cn/simple/
 ```
+
+## 三、安装编译器
+
+### 3.1 安装pycharm
+
+#### 3.1.1 下载pycharm应用程序
+
+pycharm下载官网：[Download PyCharm: Python IDE for Professional Developers by JetBrains](https://www.jetbrains.com/pycharm/download/?section=windows)
+
+专业版是不免费的，建议网上查找破解的方法。
+双击安装。
+
+本次下载的版本是：pycharm-professional-2020.1.3
+#### 3.1.2 pycharm破解
+
+先下载 jetbrains-agent.jar，激活的时候要用！
+
+![[Pasted image 20230929134924.png|400]]
+
+
+![[Pasted image 20230929135000.png|400]]
+
+
+![[Pasted image 20230929135010.png|400]]
+
+==如果你的 pycharm 拖不上去这个文件，可以点 File – setting – plugins，然后 install plugin from disk，再选择 jetbrains-agent.jar 安装==
+
+![[Pasted image 20230929135118.png|400]]
+
+
+![[Pasted image 20230929135137.png|400]]
+
+
+![[Pasted image 20230929135147.png|400]]
+

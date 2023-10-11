@@ -6,7 +6,7 @@ time: 2023-09-26 周二
 tags:
   - Hadoop
   - Hadoop高可用
-代码:
+代码: bigdata项目的下的hadoop-hdfs
 ---
 ## 一、概述
 
@@ -34,3 +34,18 @@ YARN HA也是如此。
 ## 三、Hadoop HA 高可用安装
 
 [[Hadoop HA 高可用安装]]
+## 四、HDFS客户端操作
+
+### 4.1 HFDS客户端命令行操作（shell）
+
+见[[HDFS学习#2.1 HDFS客户端命令行操作（shell）（重点）]]
+### 4.2 HDFS客户端API操作（java）
+
+见[[HDFS学习#2.2 HDFS客户端API操作（java）]]
+
+只需要改一点（com.bigdata.hdfs.HAHdfsClientMian）：
+
+```java
+# 把hdfs-site.xml文件放在resources即可
+FileSystem fs = FileSystem.get(new URI("hdfs://mycluster"), conf, "hadoop");
+```

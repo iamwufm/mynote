@@ -48,7 +48,7 @@ tags:
 
 优化导入的类和包：Ctrl +Alt+L
 
-查看接口实现类 或 跳转到方法实现处：Ctrl +Alt+B
+	查看接口实现类 或 跳转到方法实现处：Ctrl +Alt+B
 ## 三、Maven学习
 
 参见 [[Maven自动化构建工具]]

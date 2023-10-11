@@ -181,6 +181,11 @@ yarn queue -status default
 ```
 ## 四、Yarn 生产环境核心参数
 
+```shell
+cd /opt/module/hadoop-3.3.6/etc/hadoop
+vim yarn-site.xml
+```
+
 1. ResourceManager相关
 
 ```txt
