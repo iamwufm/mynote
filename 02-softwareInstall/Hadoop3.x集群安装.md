@@ -655,7 +655,7 @@ jps
 # 2.通过进程id查找namenode监控的端口
 netstat -ntlp|grep 进程id
 # 3.浏览访问namenode提供的web:
-hadoop02:端口号（http://hadoop02:9870，旧版本是http://hadoop02:50070）
+hadoop102:端口号（http://hadoop101:9870，旧版本是http://hadoop101:50070）
 # 4.同理，也可以通过相同的方法访问datanode提供的web
 ```
 

@@ -72,7 +72,7 @@ tencent：https://mirrors.cloud.tencent.com/repository/maven/
 
 Eclipse和IDEA是目前比较流行的编辑器。Eclipse是免费的，idea是收费的。
 
-### 3.1 安装idea
+### 3.1 安装idea2018
 #### 3.1.1 下载idea应用程序
 
 idea下载官网：[IntelliJ IDEA – 领先的 Java 和 Kotlin IDE (jetbrains.com.cn)](https://www.jetbrains.com.cn/idea/promo/?bd_vid=8517581315287908800)
@@ -168,3 +168,7 @@ ThisCrackLicenseId-{
 ![[Pasted image 20230907091452.png]]
 
 ![[Pasted image 20230907091407.png]]
+
+### 3.3 安装idea2020
+
+见[[window安装python#3.1.2 pycharm破解]]
