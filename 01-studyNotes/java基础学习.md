@@ -61,7 +61,7 @@ python：机器学习算法编程
 Eclipse或IDEA：为编写程序代码提供编辑器和编译器等
 
 3. 开发环境安装
-参见[[window安装java]]
+参见[[Windows安装Java]]
 
 ## 二、java编程入门
 

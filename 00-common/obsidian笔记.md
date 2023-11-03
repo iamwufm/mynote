@@ -162,20 +162,20 @@ public class MyConstant {
 ``![[ 某文件#^某段话|别名]]``
 ```txt
 [[window安装java]]
-[[window安装java#1.1下载jdk应用程序]]
+[[Windows安装Java#1.1 下载JDK应用程序]]
 [[window安装java#^07b760]]
 [[window安装java#^07b760|maven官网地址]]
 ![[window安装java#^07b760|maven官网地址]]
 ```
-[[window安装java]]
+[[Windows安装Java]]
 
-[[window安装java#1.1下载jdk应用程序]]
+[[Windows安装Java#1.1 下载JDK应用程序]]
 
-[[window安装java#^07b760]]
+[[Windows安装Java#^07b760]]
 
-[[window安装java#^07b760|maven官网地址]]
+[[Windows安装Java#^07b760|maven官网地址]]
 
-![[window安装java#^07b760|maven官网地址]]
+![[Windows安装Java#^07b760|maven官网地址]]
 
 ## 三、常用第三方插件
 

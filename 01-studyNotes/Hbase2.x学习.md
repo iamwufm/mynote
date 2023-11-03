@@ -37,7 +37,7 @@ HBASE相比于其他nosql数据库(mongodb、redis、cassendra、hazelcast)的�
 从而，hbase具备如下特性：==存储容量可以线性扩展； 数据存储的安全性可靠性极高==！
 ## 二、Hbase安装
 
-见[[Hbase2.x安装]]
+见[[Hbase2.x集群安装]]
 ## 三、Hbase表模型
 
 hbase的表模型跟mysql之类的关系型数据库的表模型差别巨大

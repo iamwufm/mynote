@@ -14,7 +14,7 @@ tags:
 
 双击安装。
 
-破解步骤见[[window安装python#3.1.2 pycharm破解]]
+破解步骤见[[Windows安装Python#3.1.2 pycharm破解]]
 ## 二、datagrip连接hive
 
 

@@ -51,7 +51,7 @@ ZooKeeper 数据模型的结构与 Unix 文件系统很类似，整体上可以�
 
 ## 二、Zookeeper安装
 
-参见[[Zookeeper3.x安装]]
+参见[[Zookeeper3.x集群安装]]
 ## 三、Zookeeper集群操作
 
 ### 3.1 客户端命令行操作（shell）

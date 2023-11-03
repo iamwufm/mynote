@@ -1,6 +1,6 @@
 ---
 author: wufm
-title: Hbase2.x安装
+title: Hbase2.x集群安装
 rating: 4
 time: 2023-10-12 周四
 tags:
@@ -28,7 +28,7 @@ HBASE是一个分布式系统
 见[[Hadoop3.x集群安装]]
 ### 2.2 安装zookpeeper集群
 
-见[[Zookeeper3.x安装]]
+见[[Zookeeper3.x集群安装]]
 ## 三、安装Hbase集群
 
 ### 3.1 下载Hbase安装包
@@ -123,6 +123,7 @@ hadoop103
 ```
 
 （可选）配置高可用（也可以通过命令在其他机器启动hmaster）
+
 ```shell
 touch backup-masters
 echo hadoop102 > backup-masters

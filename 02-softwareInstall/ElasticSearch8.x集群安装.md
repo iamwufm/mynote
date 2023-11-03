@@ -1,6 +1,6 @@
 ---
 author: wufm
-title: ElasticSearch8.x安装
+title: ElasticSearch8.x集群安装
 rating: 4
 time: 2023-10-24 周二
 tags:

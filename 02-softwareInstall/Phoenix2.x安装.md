@@ -13,7 +13,7 @@ tags:
 
 ### 1.1 安装Hbase集群
 
-见[[Hbase2.x安装]]
+见[[Hbase2.x集群安装]]
 ## 二、安装Phoenix
 
 ### 2.1 下载Phoenix安装包

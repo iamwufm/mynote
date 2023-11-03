@@ -132,7 +132,7 @@ hadoop fs -rm -r /sanguo
 ```
 ### 2.2 HDFS客户端API操作（java）
 
-在window上安装hadoop客户端。具体操作参见[[window安装hadoop]]
+在window上安装hadoop客户端。具体操作参见[[Windows安装hadoop]]
 
 （1）增删查改操作：com.bigdata.hdfs.HdfsClientTestMian
 

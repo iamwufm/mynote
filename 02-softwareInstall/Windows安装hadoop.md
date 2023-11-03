@@ -1,6 +1,6 @@
 ---
 author: wufm
-title: window安装hadoop
+title: Windows安装hadoop
 rating: 2
 time: 2023-09-21 周四
 tags:
@@ -34,7 +34,7 @@ Hadoop包下载地址：[Apache Hadoop官网](https://hadoop.apache.org/releases
 ### 3.1 配置hadoop环境变量
 
 ![[Pasted image 20230901165013.png|400]]
-### 3.2 配置jdk路径
+### 3.2 配置JDK路径
 
 进去{hadoop安装目录}/etc/hadoop
 

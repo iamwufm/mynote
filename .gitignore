@@ -1,9 +1,10 @@
 .trash
 .obsidian
 
-#.obsidian/*.json
-#.obsidian/plugins/*
+.obsidian/*.json
+.obsidian/plugins/*
 # 不需要再同步
 # !.obsidian/plugins/obsidian-markmind
 # !.obsidian/plugins/obsidian-proxy-github
 # !.obsidian/plugins/obsidian-excalidraw-plugin
+!.obsidian/plugins/obsidian-code-tab

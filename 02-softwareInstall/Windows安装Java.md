@@ -1,21 +1,35 @@
-## 一、安装jdk
+---
+author: wufm
+title: Windows安装Java
+rating: 4
+time: 2023-10-28 周六
+tags:
+  - java
+代码:
+---
 
-### 1.1下载jdk应用程序
+## 一、安装JDK
+
+### 1.1 下载JDK应用程序
+
 官网地址：[https://www.oracle.com/](https://www.oracle.com/)
+
 建议安装1.8，目前官网1.8收费。
+
 下载exe应用程序，双击安装即可。
-### 1.2配置环境变量
+### 1.2 配置环境变量
+
 新建JAVA_HOME变量，在PATH变量最后面添加一条变量值。如下图所示。
 
-配置完成后，通过`win+r`调出【运行】弹窗，输入`cmd`之后打开【命令提示符】。
-输入`java -version`，出现版本号表示安装成功。
+配置完成后，通过`win+r`调出【运行】弹窗，输入`cmd`之后打开【命令提示符】。输入`java -version`，出现版本号表示安装成功。
+
 ![[图片3.png]]
 
 ![[图片4.png]]
 
 ## 二、安装maven
 
-### 2.1下载maven压缩包
+### 2.1 下载maven压缩包
 官网下载zip包：[https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi) ^07b760
 
 jdk1.8建议使用maven的版本是3.3.9
@@ -23,7 +37,7 @@ jdk1.8建议使用maven的版本是3.3.9
 
 从官方获取jar包：[中央仓库](https://mvnrepository.com/)
 
-### 2.2配置环境变量
+### 2.2 配置环境变量
 
 跟 [jdk环境变量](#1.2配置环境变量)一样。
 配置完成后，通过`win+r`调出【运行】弹窗，输入`cmd`之后打开【命令提示符】。
@@ -41,18 +55,93 @@ jdk1.8建议使用maven的版本是3.3.9
 ```
 
 2.修改镜像文件
+
 把远程仓库改为阿里仓库镜像
+
+（1）方法一：配置单一库
 
 ```xml
 <!-- 找到<mirrors></mirrors>标签，复制如下内容到标签里面-->
-	 <!--此处配置所有的构建均从私有仓库中下载 *代表所有，
-		也可以写central等和仓库配置 id 一致的内容-->
-		<!--外网-->
-	<mirror>
-      <id>nexus</id>
-      <mirrorOf>central</mirrorOf>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-	</mirror>
+<!-- 单一库，用这个就行了。 这个虽然也可以配置多个，但是，它是第一个镜像挂了，才会找第二个。 不是多仓库的意思 -->
+<mirror>
+  <id>nexus</id>
+  <mirrorOf>central</mirrorOf>
+  <url>https://maven.aliyun.com/repository/public</url>
+</mirror>
+
+<mirror>
+  <id>huaweiyun</id>
+  <mirrorOf>central</mirrorOf>
+  <url>hhttps://repo.huaweicloud.com/repository/maven</url>
+</mirror>
+```
+
+（2）配置多仓库
+
+```xml
+<!-- 找到<profiles></profiles>标签，复制如下内容到标签里面,mirror内容可以注释掉--> 
+    <!-- maven配置多仓库。使用顺序是倒序的，所以最流畅的写在最下面。 -->
+    <!-- repo1仓库 -->
+    <profile>
+      <id>repo1</id>
+      <repositories>
+        <repository>
+          <id>repo1</id>
+          <url>https://repo1.maven.org/maven2</url>
+           <!-- 能下载正式版本 -->
+          <releases><enabled>true</enabled></releases>
+          <!-- 能下载快照版本 -->
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+    <!-- 清华大学 -->
+    <profile>
+      <id>repo</id>
+      <repositories>
+        <repository>
+          <id>repo</id>
+          <url>https://repo.maven.apache.org/maven2/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+     <!-- 华为云 -->
+    <profile>
+      <id>huaweicloud</id>
+      <repositories>
+        <repository>
+          <id>huaweicloud</id>
+          <url>https://repo.huaweicloud.com/repository/maven/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+    <!-- 阿里云 -->
+    <profile>
+      <id>aliyun</id>
+      <repositories>
+        <repository>
+          <id>aliyun</id>
+          <url>https://maven.aliyun.com/repository/public</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+```
+
+```xml
+<!-- 激活仓库 -->
+<activeProfiles>
+    <activeProfile>repo1</activeProfile>
+    <activeProfile>repo</activeProfile>
+    <activeProfile>huaweicloud</activeProfile>
+    <activeProfile>aliyun</activeProfile>
+</activeProfiles>
 ```
 
 国内镜像仓库
@@ -171,4 +260,4 @@ ThisCrackLicenseId-{
 
 ### 3.3 安装idea2020
 
-见[[window安装python#3.1.2 pycharm破解]]
+见[[Windows安装Python#3.1.2 pycharm破解]]

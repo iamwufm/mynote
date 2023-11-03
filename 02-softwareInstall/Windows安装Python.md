@@ -1,8 +1,20 @@
+---
+author: wufm
+title: Windows安装Python
+rating: 2
+time: 2023-10-28 周六
+tags:
+  - Python
+代码:
+---
 
 ## 一、下载python应用程序
+
 下载地址：[https://www.python.org/](https://www.python.org/)
+
 根据电脑操作系统下载相应的应用程序
-双击安装即可。可以在安装过程勾选配置环境变量。如果没有可以参考[[window安装java#1.2配置环境变量|jdk配置环境变量]]的方法
+
+双击安装即可。可以在安装过程勾选配置环境变量。如果没有可以参考[[Windows安装Java#1.2 配置环境变量]]的方法
 
 ## 二、更换镜像源
 

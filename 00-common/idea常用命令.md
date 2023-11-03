@@ -85,3 +85,27 @@ Alt+F9（Run to Cursor）运行到光标处，你可以将光标定位到你需�
 ==Alt+F9操作：== ^31dd21
 
 ![[Pasted image 20230921112227.png|375]]
+
+## 五、依赖有问题
+
+```pom
+<!-- 添加akka的actor依赖 -->  
+<dependency>  
+    <groupId>com.typesafe.akka</groupId>  
+    <artifactId>akka-actor_2.12</artifactId>  
+    <version>2.8.5</version>  
+</dependency>
+```
+
+如果实在下载不了文件，去官网下载jar和pom文件即可
+
+官网：[Maven Repository: Search/Browse/Explore (mvnrepository.com)](https://mvnrepository.com/)
+
+pom文件需要自己创建，然后把内容复制进入即可
+
+
+![[Pasted image 20231101170040.png|500]]
+
+然后把pom文件和jar包放入指定的目录即可
+
+![[Pasted image 20231101170134.png]]

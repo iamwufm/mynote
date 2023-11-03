@@ -40,7 +40,7 @@ ElasticSearch是一个基于JSON的==实时分布式搜索和分析引擎==。�
 -  **近实时**：从写入数据到数据可以被搜索到有一个小延迟（大概1秒）
 ## 二、ElasticSearch安装
 
-见[[ElasticSearch8.x安装]]
+见[[ElasticSearch8.x集群安装]]
 
 ## 三、数据类型
 
@@ -406,7 +406,7 @@ ES自带的分词器，对中文的分词效果不明显，因此使用IK分词�
 
 ### 5.2 IK分词器
 
-IK分词器安装见[[ElasticSearch8.x安装#5.3 安装IK分词器插件]]
+IK分词器安装见[[ElasticSearch8.x集群安装#5.3 安装IK分词器插件]]
 
 IK提供了两个分词算法ik_smart 和 ik_max_word。推荐用ik_smart
 

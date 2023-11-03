@@ -5,7 +5,6 @@ rating: 4
 time: 2023-09-28 周四
 tags:
   - Hive
-  - Hive安装
 代码:
 ---
 ## 一、环境准备

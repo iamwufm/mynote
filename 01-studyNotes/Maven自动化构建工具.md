@@ -32,7 +32,7 @@ maven解决的问题：
 **2. 结合开发工具使用：一般在idea中使用maven（简单便捷，不需要记命令）**
 ### 1.3 安装Maven环境
 
-参考[[window安装java#二、安装maven]]
+参考[[Windows安装Java#二、安装maven]]
 
 ## 二、Maven核心概念
 

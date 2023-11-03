@@ -34,7 +34,7 @@ NameNode和ResourceManager不要安装在同一台机器上，都是容易消耗
 
 ### 2.2 安装zookeeper
 
-参见[[Zookeeper3.x安装]]
+参见[[Zookeeper3.x集群安装]]
 
 安装目录更名为：/opt/module/ha-zookeeper-3.8.2
 

@@ -1,10 +1,9 @@
 ---
 author: wufm
-title: Zookeeper3.x安装
+title: Zookeeper3.x集群安装
 rating: 3
 time: 2023-09-24 周日
 tags:
-  - Zookeeper安装
   - Zookeeper
 代码:
 ---
